@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+
+        .container {
+            border: 1px solid red;
+            padding: 20px;
+        }
+    
+        .container .childA {
+            background-color: green;
+            width: 50%;
+            float: left;
+            height: 100px;
+        }
+    
+        .container .childB {
+            background-color: orange;
+            width: 50%;
+            height: 100px;
+            float: right;
+
+        }
+        </style>
+</head>
+<body>
+    <pre>
+        chú ý kỹ thuật clearfix trong css
+
+        vấn đề khi thẻ cha không được đặt thuộc tính chiều cao
+        mà các thẻ con trực tiếp của thẻ cha bị float left hay right 
+        thì thẻ con trượt khỏi thẻ cha hay nói cách khác 
+        thẻ cha không chứa thẻ con 
+
+        => khắc phục hiện tượng này dùng kỹ thuật clearfix
+    </pre>
+
+    <div class="container clearfix">
+        box cha
+        <div class="childA">
+           box a float left
+        </div>
+        <div class="childB">
+            box b float right
+        </div>
+    </div>
+</body>
+</html>
