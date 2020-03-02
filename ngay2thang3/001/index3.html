@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+    .container {
+        border: 1px solid red;
+        padding: 20px;
+    }
+
+    .container .childA {
+        background-color: green;
+        width: 50%;
+        float: right;
+        height: 100px;
+    }
+
+    .container .childB {
+        background-color: orange;
+        width: 50%;
+        height: 100px;
+
+        clear: right;
+    }
+    </style>
+</head>
+<body>
+    
+    <pre>
+        Chú ý về thuộc tính float
+        Khi 1 thẻ float sang trái hay sang phải thì nó kéo thẻ bên cạnh nó di chuyển lên trên
+        Muốn tránh hiện tượng bị thẻ float bên cạnh tác động thì sẽ sử dụng thuộc tính clear
+        để chống thuộc tính float 
+        ví dụ : chống float: left; dùng clear:left;
+        chống float:right; dùng clear:right;
+        chống cả float:left và float:right; thì sử dụng clear:both;
+    </pre>
+
+    <div class="container">
+        <div class="childA">
+            Box float
+        </div>
+        <div class="childB">
+            Box bị tác động
+        </div>
+    </div>
+</body>
+</html>
