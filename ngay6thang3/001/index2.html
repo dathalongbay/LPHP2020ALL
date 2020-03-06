@@ -3,6 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style type="text/css">
+        .clearfix::after {
+            display: block;
+            clear: both;
+            content: "";
+        }
+
+        .parent {
+            width: 600px;
+            border: 1px solid red;
+        }
+
+        #box1 {
+            float: left;
+            width: 150px;
+            background-color: green;
+        }
+
+        #box2 {
+            float: right;
+            width: 150px;
+            background-color: green;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,7 +40,7 @@
         Sử dụng kỹ thuật float trong css
     </pre>
 
-    <div class="parent">
+    <div class="parent clearfix">
         <div id="box1">Left</div>
         <div id="box2">Right</div>
     </div>

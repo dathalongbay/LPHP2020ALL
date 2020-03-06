@@ -3,6 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style type="text/css">
+        .clearfix::after {
+            display: block;
+            clear: both;
+            content: "";
+        }
+
+        .parent {
+            width: 600px;
+            border: 1px solid red;
+            position: relative;
+            height: 50px;
+        }
+
+        #box1 {
+            width: 150px;
+            background-color: green;
+            position: absolute;
+            left: 0;
+        }
+
+        #box2 {
+            float: right;
+            width: 150px;
+            background-color: green;
+            position: absolute;
+            right: 0;
+        }
+    </style>
 </head>
 <body>
 
