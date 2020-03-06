@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        .classA  {
+            color: red;
+            background-color: green;
+            font-size: 18px;
+        }
+
+        .classB {
+            color: red;
+            background-color: green;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <pre>
+        SELECTOR mở rộng ( bộ chọn trong css )
+
+        .classA : chọn tất cả thẻ có class css là classA 
+        .classA.classB : chọn tất cả các thẻ có 2 class đồng thời là classA và classB 
+        .classA .classB : chọn tất cả các thẻ có classB nằm trong classA 
+        .classA > .classB : chọn tât cả các thẻ có classB là con trực tiếp của classA 
+        .classA,.classB : chọn các thẻ có classA hoặc classB 
+
+    </pre>
+
+
+    <div class="classA">
+
+        <div class="classB">ClassB bên trong</div>
+        <div class="classB">ClassB bên trong</div>
+        <div class="classB">ClassB bên trong</div>
+        <div>
+            <div class="classB">ClassB bên trong</div>
+            <div>
+                <div class="classB">ClassB bên trong</div>
+            </div>
+        </div>
+    </div>
+    <div class="classA">div 2</div>
+    <div class="classB">.classB nằm bên ngoài</div>
+
+</body>
+</html>
