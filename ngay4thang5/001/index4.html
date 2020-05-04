@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <pre>
+        class css .col chia giao diện 1 cách tự động
+        làm quen với class css cho col nhưng chia theo độ rộng
+        theo từng loại màn khác nhau
+        responsive :
+        đáp ứng theo các loại màn hình khác nhau
+        ví dụ :
+        giao diện mobile hiển thị 1 cột
+        giao diện tab máy tính bảng hiển thị 2 cột
+        giao diện laptop hiển thị 3 cột
+        giao diện màn hình máy tính hiểu tính 4 cột
+
+        .col- (extra small devices - screen width less than 576px)
+        áp dụng mobile ( màn hình có độ rộng nhỏ 576px )
+
+        .col-sm- (small devices - screen width equal to or greater than 576px)
+        áp dụng cho màn hình máy tính bảng ( đô rộng bằng hoặc lớp hơn 576px - 767px )
+
+        .col-md- (medium devices - screen width equal to or greater than 768px)
+        áp dụng laptop ( width từ 768px đến 991px )
+
+        .col-lg- (large devices - screen width equal to or greater than 992px)
+        áp dụng màn hình pc ( độ rộng 992px đến 1199px )
+
+        .col-xl- (xlarge devices - screen width equal to or greater than 1200px)
+        áp dụng tivi ( màn hình width lớn hơn hay bằng 1200px )
+
+    </pre>
+
+    <h1>thực hành col-sm với hệ thống lưới 12 cột </h1>
+
+    <h1>demo 1 cột </h1>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-12">
+                giao diện 1 cột
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet distinctio facere impedit, incidunt magnam officiis recusandae sed tempora. Ex incidunt libero magni, mollitia odit possimus ratione rem tempore voluptatum!</p>
+            </div>
+        </div>
+    </div>
+
+    <h1>demo 2 cột </h1>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-6">
+                giao diện 2 cột
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet distinctio facere impedit, incidunt magnam officiis recusandae sed tempora. Ex incidunt libero magni, mollitia odit possimus ratione rem tempore voluptatum!</p>
+            </div>
+            <div class="col-sm-6">
+                giao diện 2 cột
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet distinctio facere impedit, incidunt magnam officiis recusandae sed tempora. Ex incidunt libero magni, mollitia odit possimus ratione rem tempore voluptatum!</p>
+            </div>
+        </div>
+    </div>
+
+    <h1>demo 3 cột </h1>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-4">
+                giao diện 3 cột
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet distinctio facere impedit, incidunt magnam officiis recusandae sed tempora. Ex incidunt libero magni, mollitia odit possimus ratione rem tempore voluptatum!</p>
+            </div>
+            <div class="col-sm-4">
+                giao diện 3 cột
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet distinctio facere impedit, incidunt magnam officiis recusandae sed tempora. Ex incidunt libero magni, mollitia odit possimus ratione rem tempore voluptatum!</p>
+            </div>
+            <div class="col-sm-4">
+                giao diện 3 cột
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet distinctio facere impedit, incidunt magnam officiis recusandae sed tempora. Ex incidunt libero magni, mollitia odit possimus ratione rem tempore voluptatum!</p>
+            </div>
+        </div>
+    </div>
+
+
+    <h1>demo 4 cột </h1>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-3">
+                giao diện 4 cột
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet distinctio facere impedit, incidunt magnam officiis recusandae sed tempora. Ex incidunt libero magni, mollitia odit possimus ratione rem tempore voluptatum!</p>
+            </div>
+            <div class="col-sm-3">
+                giao diện 4 cột
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet distinctio facere impedit, incidunt magnam officiis recusandae sed tempora. Ex incidunt libero magni, mollitia odit possimus ratione rem tempore voluptatum!</p>
+            </div>
+            <div class="col-sm-3">
+                giao diện 4 cột
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet distinctio facere impedit, incidunt magnam officiis recusandae sed tempora. Ex incidunt libero magni, mollitia odit possimus ratione rem tempore voluptatum!</p>
+            </div>
+            <div class="col-sm-3">
+                giao diện 4 cột
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet distinctio facere impedit, incidunt magnam officiis recusandae sed tempora. Ex incidunt libero magni, mollitia odit possimus ratione rem tempore voluptatum!</p>
+            </div>
+        </div>
+    </div>
+
+    <pre>
+        Kết luận : rút ra công thức sử dụng hậu tố
+        col-sm-*
+        * là 1 số hậu tố để chía cột
+        1 cột => col-sm-12
+        2 cột => col-sm-6
+        3 cột => col-sm-4
+        4 cột => col-sm-3
+
+        12/số cột = hâu tố đằng sau class cột
+
+        6 cột => 12/6 => col-sm-2
+        12 cột => 12/12 => cok-sm-1
+
+        nhược điểm
+        Không chia được 5 cột bằng nhau
+        Không chia được 7 cột bằng nhau
+        Không chia được 9 cột bằng nhau
+
+    </pre>
+
+    <h1>chia giao diện 6 cột sử dụng col-sm</h1>
+
+</body>
+</html>
