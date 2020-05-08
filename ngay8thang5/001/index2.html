@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+
+        /* CSS mặc định áp dụng từ 680 trỏ lên */
+        body {
+            background-color: orange;
+            color: green;
+        }
+
+        /* áp dụng cho màn hình từ 680px trở xuống
+        0 đến 679px */
+        @media screen and (max-width: 680px) {
+            body {
+                background-color: greenyellow;
+                color: #ae7e35;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        @media screen and (min-width: 680px)
+        => min-width: 680px áp dụng cho màn hình từ 680px trở lên
+
+        @media screen and (max-width: 680px)
+        => max-width: 680px áp dụng cho màn hình từ 680 trở xuống
+    </pre>
+
+</body>
+</html>
