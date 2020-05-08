@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+
+
+
+        /* CSS mặc định 0 - 679px */
+        body {
+            background-color: darkviolet;
+        }
+
+        /* min-width thì tăng dần */
+        @media screen and (min-width: 680px){
+            body {
+                background-color: green;
+            }
+        }
+
+
+        @media screen and (min-width: 1000px){
+            body {
+                background-color: pink;
+            }
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <pre>
+        áp dụng nhiều media query cùng 1 lúc
+        ví dụ
+        màn hình từ 0 - 679px : màu tím
+        màn hình từ 680px - 1000px : màu xanh
+        màn hình 1000px - vô cực : màu hồng
+
+        áp dụng kỹ thuật min-width
+
+        áp dụng viết theo quy tắc tăng dần của media min-width
+    </pre>
+</body>
+</html>
