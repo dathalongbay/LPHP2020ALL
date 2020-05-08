@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        Hàm function trong js
+        Hàm là 1 tập hợp các câu lệnh để thực hiện 1 chức năng cụ thể
+        ví dụ
+        hàm tính chu vi hình tròn , chu vi hình vuông
+        hàm tính lương nhân viên , hàm tính thu nhập của doanh nghiệp ...
+
+        cú pháp
+        function tenHam(đối số đầu vào = gán giá trị mặc định) {
+            // Nội dung của hàm
+            // sử dụng return nếu muốn trả về giá trị
+        }
+
+        cú pháp gọi hàm
+        tenHam(truyền giá trị cho đối số)
+
+        làm việc với hàm
+        tư duy theo kiểu input và output
+        input
+        độ dài 2 cạnh a và b
+        output trả ra là kết quả
+
+        Hàm cho phép chia tách module để có thể tái sử dụng nhiều lần
+    </pre>
+
+    <script type="text/javascript">
+
+        // a và b là input
+        function tinhChuViHinhChuNhat(a = 5, b = 2) {
+
+            var P = (a + b)*2;
+
+            // P là output
+            return P;
+        }
+
+        // gọi hàm
+        var c = 15;
+        var d = 2;
+        var chuvi = tinhChuViHinhChuNhat(c, d);
+
+        console.log(chuvi);
+
+        // sử dụng giá trị mặc định của đối số khi khái báo function
+        var chuvi2 = tinhChuViHinhChuNhat();
+        console.log(chuvi2);
+
+
+    </script>
+
+</body>
+</html>
