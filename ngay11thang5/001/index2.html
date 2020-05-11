@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        Khai báo các method trong 1 object {}
+
+        ten_phuong_thuc: function() {
+            // nội dung của phương thức
+        }
+
+
+    </pre>
+
+    <script type="text/javascript">
+        var person = {
+            firstName: 'tuấn',
+            lastName: 'lê',
+            toan: 8,
+            ly: 7,
+            hoa: 10,
+            // khai báo phương thức fullName
+            fullName: function () {
+                return this.firstName + ' ' + this.lastName;
+            },
+            // method tính điểm trung bình
+            diemTrungBinh: function () {
+                // truy cập 1 thuộc tính hay phương thức
+                // trong object thì dùng từ khóa this
+                // this tượng trung cho chính bản thân nó
+                dtb = (this.toan + this.ly + this.hoa)/3;
+                return dtb;
+            }
+        };
+
+        // in ra thuộc tính
+        console.log(person.firstName);
+        console.log(person.lastName);
+
+        // truy cập vào phương thức thức của object
+        console.log(person.fullName());
+        console.log(person.diemTrungBinh());
+    </script>
+
+</body>
+</html>
