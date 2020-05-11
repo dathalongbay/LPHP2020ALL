@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        JS không hỗ trợ mảng kết hợp
+        Các cách kiểm tra biến là 1 mảng
+
+    </pre>
+
+    <script type="text/javascript">
+        var cities1 = ['hà nội', 'hồ chí minh', 'đà nẵng'];
+
+        // trả về object
+        console.log(typeof cities1);
+
+        // cách 1 kiểm tra 1 biến có phải mảng hay không
+        var check1 = Array.isArray(cities1);
+        console.log(check1);
+        // trả về true thì sẽ là 1 mảng
+
+        // cách 2
+        function isArray(x) {
+            return x.constructor.toString().indexOf("Array") > -1;
+        }
+        var check2 = isArray(cities1);
+        console.log(check2);
+        // trả về true thì là mảng
+
+        // cách 3
+        var check3 = cities1 instanceof Array;
+        console.log(check3);
+
+        var d = 5;
+        var check4 = d instanceof Array;
+        console.log(check4);
+    </script>
+
+</body>
+</html>
