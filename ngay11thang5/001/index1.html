@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        Kiểu object trong JS
+        ví dụ đối tượng xe hơi
+        thì các đặc điểm như là : tên , khối lượng , màu sắc ...
+        là thuộc tính của đối tượng
+        và các hành động xe hơi như khởi động , lái , phanh , dừng
+        là phương thức của đối tượng
+        cú pháp khai báo object
+        var car = {};
+        dùng {} khái báo object
+        trong {} có các thuộc tính của object
+        thuộc tính 1 : giá tri 1, thuộc tính 2 : giá trị 2
+
+        dùng dấu , phân tách các cặp thuộc tính với nhau
+        dùng : phân tách tên thuộc tính và giá trị của thuộc tính
+
+        tên thuộc tính trong object {} thì ko cần đặt trong nháy đơn hay nháy kép
+        giá trị thuộc tính nếu là chuỗi phải đặt trong '' hay ""
+    </pre>
+
+    <script type="text/javascript">
+        // khai báo object
+        var car = {name: 'Toyota', model: 'Vios', price: 500000000};
+
+        // in ra object
+        console.log(car);
+
+        // truy cập vào giá trị của thuộc tính
+        // dùng dâu . để truy cập cú pháp object.property
+        console.log(car.name);
+        console.log(car.model);
+        console.log(car.price);
+
+        // gán lại giá trị của thuộc tính
+        // tăng giá ô tô
+        car.price = 600000000;
+
+        // in lại object
+        console.log(car);
+    </script>
+</body>
+</html>
