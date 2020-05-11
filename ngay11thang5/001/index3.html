@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <PRE>
+        1 số phương thức xử lý chuỗi trong js
+    </PRE>
+
+    <script type="text/javascript">
+        var str1 = 'hà nội là thủ đô của vn , hà nội';
+
+        // in ra độ dài length của chuỗi này
+        console.log(str1.length);
+
+        // tìm 1 chuỗi nhỏ trong 1 chuỗi lớn
+        // dùng indexOf() trả về vị trí xuất hiện chuỗi con trong chuỗi mẹ
+        console.log(str1.indexOf('thủ đô'));
+
+        // tìm chuỗi không có trong chuỗi mẹ
+        // không tìm thấy thì trả về -1
+        console.log(str1.indexOf('đà nẵng'));
+
+        // tìm vị trí xuất hiện cuối cùng trong chuỗi mẹ
+        console.log(str1.lastIndexOf('hà nội'));
+
+
+        // thực hành cắt chuỗi slice(begin, end)
+        console.log(str1.slice(0,6));
+
+        // substr(start, length)
+        console.log(str1.substr(0,20));
+
+        // replace()
+        console.log(str1.replace('vn', 'việt nam'));
+    </script>
+
+</body>
+</html>
