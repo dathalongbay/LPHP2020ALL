@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        #clock{
+            overflow: hidden;
+        }
+        #clock > div {
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>In ra thời gian hiện tại bằng đồ hồ</h1>
+
+    <pre>
+        setInterval gọi lại 1 hàm callback bên trong nó
+        theo 1 chu kỳ xác định
+        setInterval(param1, param2);
+        trong đó param1 là hàm không có tên
+        params2 là thời gian chu kỳ gọi lại callback
+        tính theo mili giấy
+    </pre>
+
+    <div id="clock" style="font-weight: 40px; color: orange">
+        <div>
+            <p id="d"></p>
+            Ngày
+        </div>
+        <div>
+            <p id="m"></p>
+            Tháng
+        </div>
+        <div>
+            <p id="y"></p>
+            Năm
+        </div>
+        <div>
+            <p id="h"></p>
+            Giờ
+        </div>
+
+        <div>
+            <p id="i"></p>
+            Phút
+        </div>
+
+        <div>
+            <p id="s"></p>
+            Giây
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+
+        setInterval(function(){
+            var d1 = new Date();
+
+            var y = d1.getFullYear();
+            document.getElementById('y').innerText = y;
+
+            // tháng 0 đến 11
+            var m = d1.getMonth();
+            document.getElementById('m').innerText = m+1;
+
+            var d = d1.getDate();
+            document.getElementById('d').innerText = d;
+
+            var h = d1.getHours();
+            document.getElementById('h').innerText = h;
+
+            var i = d1.getMinutes();
+            document.getElementById('i').innerText = i;
+
+            var s = d1.getSeconds();
+            document.getElementById('s').innerText = s;
+        }, 1000);
+
+
+    </script>
+</body>
+</html>
