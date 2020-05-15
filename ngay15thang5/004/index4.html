@@ -3,8 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style type="text/css">
+        #clock{
+            overflow: hidden;
+        }
+        #clock > div {
+            float: left;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
+
+    <div>
+        <label>Ngày</label>
+        <input name="day" id="day" value="" placeholder="Nhập ngày sinh nhật">
+    </div>
+
+    <div>
+        <label>Tháng</label>
+        <input name="month" id="month" value="" placeholder="Nhập tháng sinh nhật">
+    </div>
+
+    <div>
+        <label>Năm</label>
+        <input name="year" id="year" value="" placeholder="Nhập năm sinh nhật">
+    </div>
+
+    <button id="cal">Tính countdown sinh nhật</button>
+
+    <div id="clock" style="font-weight: 40px; color: orange">
+
+        <div>
+            <p id="m"></p>
+            Tháng
+        </div>
+        <div>
+            <p id="d"></p>
+            Ngày
+        </div>
+        <div>
+            <p id="h"></p>
+            Giờ
+        </div>
+
+        <div>
+            <p id="i"></p>
+            Phút
+        </div>
+
+        <div>
+            <p id="s"></p>
+            Giây
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        document.getElementById("cal").onclick = function() {
+
+            setInterval(function(){
+                // thời gian hiện tại
+                var d1 = new Date();
+                var currentYear = d1.getFullYear();
+
+                var y_sn = document.getElementById('year').value;
+                var m_sn = document.getElementById('month').value - 1;
+                var d_sn = document.getElementById('day').value;
+                var d2 = new Date(currentYear, m_sn, d_sn);
+
+                var snNext = 0;
+                if (d2.getTime() > d1.getTime()) {
+                    snNext = d2;
+                } else {
+                    currentYear = currentYear + 1;
+                    snNext = new Date(currentYear, m_sn, d_sn);
+                }
+
+                var distance = snNext.getTime() - d1.getTime();
+
+                var month = distance/((1000*60*60*24)*30);
+                month = Math.floor(month);
+                distance = distance-(month*((1000*60*60*24)*30));
+
+                var day = distance/(1000*60*60*24);
+                day = Math.floor(day);
+                distance = distance-(day*(1000*60*60*24));
+
+                var hour = distance/(1000*60*60);
+                hour = Math.floor(hour);
+                distance = distance-(hour*(1000*60*60));
+
+                var phut = distance/(1000*60);
+                phut = Math.floor(phut);
+                distance = distance-(phut*(1000*60));
+
+                var s = distance/(1000);
+                s = Math.floor(s);
+                distance = distance-(s*(1000));
+
+                document.getElementById('m').innerText = month;
+                document.getElementById('d').innerText = day;
+                document.getElementById('h').innerText = hour;
+                document.getElementById('i').innerText = phut;
+                document.getElementById('s').innerText = s;
+
+
+            }, 1000);
+        };
+    </script>
+
+
+
+
 
 </body>
 </html>
