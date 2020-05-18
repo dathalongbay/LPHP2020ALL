@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <script type="text/javascript">
+        var t = new Date();
+        var day = t.getDay();
+        // ngày trong tuần 0 - 6
+
+        switch (day) {
+            case 0:
+                console.log('chủ nhật ngày nhỉ');
+                // sau mỗi cú pháp case phải break
+                break;
+            case 1:
+                console.log('thứ 2 học java');
+                break;
+            case 2:
+                console.log('thứ 3 học CSDL');
+                break;
+            case 3:
+                console.log('thứ 4 học PHP');
+                break;
+            case 4:
+                console.log('thứ 5 cấu trúc dữ liệu và giải thuật');
+                break;
+            case 5:
+                console.log('thứ 6 học sửa chữa máy tính');
+                break;
+            case 6:
+                console.log('thứ 7 ngày nghỉ');
+                break;
+            // trường hợp mặc định dự phòng
+            default:
+                console.log('không tìm thấy thứ này trong tuần');
+        }
+    </script>
+</body>
+</html>
