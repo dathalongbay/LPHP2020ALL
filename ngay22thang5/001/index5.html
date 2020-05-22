@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        #target {
+            width: 150px;
+            height: 150px;
+            background-color: #ae7e35;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        Sự kiện di chuột
+    </pre>
+
+    <div id="target">
+        BOX
+    </div>
+
+    <script type="text/javascript">
+        document.getElementById('target').onmouseenter = function () {
+            document.getElementById('target').style.backgroundColor = 'yellow';
+            document.getElementById('target').style.border = '1px solid green';
+            document.getElementById('target').style.fontSize = '32px';
+        };
+
+        document.getElementById('target').onmouseleave = function () {
+            document.getElementById('target').style.backgroundColor = '#ae7e35';
+            document.getElementById('target').style.border = 'none';
+            document.getElementById('target').style.fontSize = '14px';
+        };
+    </script>
+</body>
+</html>
