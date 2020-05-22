@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        1 số sự kiện của bàn phím
+        onchange là sự kiện được sau khi thay đổi giá trị của 1 thành phần
+        ví dụ input , textarea , select ... trong 1 form
+    </pre>
+
+    <p>
+        <label>Mô tả ( nhập tối đa 300 ký tự )</label> <br>
+        <textarea name="desc" id="desc" cols="100" rows="10"></textarea>
+    </p>
+
+    <p id="show" style="color:red"></p>
+
+    <script type="text/javascript">
+        document.getElementById('desc').onkeydown = function () {
+            var desc = document.getElementById('desc').value;
+            console.log(desc.length);
+            if (desc.length > 300) {
+                document.getElementById('desc').value = desc.substr(0, 300);
+            }
+            var remain = 0;
+           if (desc.length >= 300) {
+               remain = 0;
+           } else {
+               remain = (300 - desc.length);
+           }
+            document.getElementById('show').innerHTML = 'số ký tự được phép nhập còn lại ' + remain;
+        };
+    </script>
+
+</body>
+</html>
