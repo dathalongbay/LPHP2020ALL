@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        1 số sự kiện của bàn phím
+        onchange là sự kiện được sau khi thay đổi giá trị của 1 thành phần
+        ví dụ input , textarea , select ... trong 1 form
+    </pre>
+
+    <p>
+        <label>Họ tên</label>
+        <input name="hoten" id="hoten" value="">
+    </p>
+
+    <p id="show" style="color:red"></p>
+
+    <script type="text/javascript">
+        document.getElementById('hoten').onchange = function () {
+            var hoten = document.getElementById('hoten').value;
+            document.getElementById('show').innerHTML = 'chào ' + hoten;
+        };
+    </script>
+
+</body>
+</html>
