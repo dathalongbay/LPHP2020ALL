@@ -22,5 +22,58 @@
         phải trả
     </pre>
 
+    <div class="container">
+        <form>
+            <p>
+                <label>Nhập số kwh tiêu thụ trong tháng</label>
+                <input type="number" name="kwh" id="kwh" value="">
+            </p>
+        </form>
+
+        <button id="cal">Tính tiền điện</button>
+        <p id="result">Số tiền bạn phải thanh toán là : ?</p>
+    </div>
+
+    <script type="text/javascript">
+        document.getElementById('cal').onclick = function () {
+          var kwh = document.getElementById('kwh').value;
+          kwh = parseInt(kwh);
+          var pay = 0;
+
+          if (kwh >= 100) {
+              pay = pay + (100*2000);
+              kwh = kwh - 100;
+          } else {
+              pay = pay + (kwh*2000);
+              kwh = 0;
+          }
+
+          if (kwh >= 50) {
+              pay = pay + (50*2500);
+              kwh = kwh - 50;
+          } else {
+              pay = pay + (kwh*2500);
+              kwh = 0;
+          }
+
+
+            if (kwh >= 50) {
+                pay = pay + (50*3000);
+                kwh = kwh - 50;
+            } else {
+                pay = pay + (kwh*3000);
+                kwh = 0;
+            }
+
+            if (kwh > 0) {
+                pay = pay + (kwh*3500);
+                kwh = 0;
+            }
+
+            console.log(pay);
+            document.getElementById('result').innerHTML = 'Số tiền phải thanh toán : ' + pay;
+        };
+    </script>
+
 </body>
 </html>
