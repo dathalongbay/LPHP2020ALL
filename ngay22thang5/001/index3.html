@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        Sự kiện trong JS
+        - click nhấp chuột
+
+        ví dụ : 2 ô input nhập giá trị bắt đầu và giá trị kết thúc
+        in ra tổng các số từ số bắt đầu cho đến kết thúc
+        vd : nhập 1 và 10
+        tính tổng các số từ 1 đến 10
+        1+2+3+4+ ... + 10 trả ra kết quả
+    </pre>
+
+    <form>
+        <p>
+            <label>Giá trị bắt đầu</label>
+            <input name="begin" id="begin" value="">
+        </p>
+        <p>
+            <label>Giá trị kết thúc</label>
+            <input name="end" id="end" value="">
+        </p>
+    </form>
+
+    <button id="cal">Tính tổng</button>
+    <p id="result">?</p>
+
+    <script type="text/javascript">
+
+        document.getElementById('cal').onclick = function () {
+          console.log('click');
+
+          // selector trong js
+          var begin  = document.getElementById('begin').value;
+          var end  = document.getElementById('end').value;
+
+          console.log(begin);
+          console.log(end);
+          if ( (begin > 0) && (end > 0) && (end > begin)) {
+
+          } else {
+              alert('dữ liệu đầu vào không hợp lệ');
+          }
+
+        };
+    </script>
+</body>
+</html>
