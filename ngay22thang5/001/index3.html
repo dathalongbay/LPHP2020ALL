@@ -34,16 +34,29 @@
     <script type="text/javascript">
 
         document.getElementById('cal').onclick = function () {
+            var sum = 0;
           console.log('click');
 
           // selector trong js
           var begin  = document.getElementById('begin').value;
           var end  = document.getElementById('end').value;
 
+          // ép kiểu về số
+            begin = parseInt(begin);
+            end = parseInt(end);
+
           console.log(begin);
           console.log(end);
           if ( (begin > 0) && (end > 0) && (end > begin)) {
+            for(var i = begin; i <= end; i++) {
 
+                console.log('lan chạy thư ' + i + ' : gia tri sum ' + sum);
+                sum = sum + i;
+            }
+
+
+            //alert(sum);
+            document.getElementById('result').innerHTML = sum;
           } else {
               alert('dữ liệu đầu vào không hợp lệ');
           }
