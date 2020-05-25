@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p id="target">Thẻ p</p>
+
+<button id="show">Hiện</button>
+<button id="hide">Ẩn</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+       $('#show').on('click', function () {
+           $('#target').show();
+       });
+
+        $('#hide').on('click', function () {
+            $('#target').hide();
+        });
+    });
+</script>
+
+</body>
+</html>
