@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        #target {
+            padding: 20px;
+            border: 1px solid red;
+            background-color: greenyellow;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        prepend thêm vào bên trong phía trước
+        append thêm vào bên trong phía sau
+        after thêm vào bên ngoài phía sau
+        before thêm vào bên ngoài phía trước
+
+    </pre>
+
+
+    <div id="target">
+
+        Vivamus suscipit tortor eget felis porttitor volutpat. Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel
+
+    </div>
+
+    <button id="prepend">prepend()</button>
+    <button id="append">append()</button>
+    <button id="after">after()</button>
+    <button id="before">before()</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#prepend').on('click', function () {
+                $('#target').prepend("<h1 style='color:red'>Thẻ h1 prepend</h1>");
+            });
+
+            $('#append').on('click', function () {
+                $('#target').append("<h2 style='color:orange'>Thẻ h2</h2>");
+            });
+
+
+            $('#after').on('click', function () {
+                $('#target').after("<h3 style='color:brown'>Thẻ h3</h3>");
+            });
+
+
+            $('#before').on('click', function () {
+                $('#target').before("<h4 style='color:pink'>Thẻ h4</h4>");
+            });
+        });
+    </script>
+</body>
+</html>
