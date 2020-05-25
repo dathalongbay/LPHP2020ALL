@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<pre>
+        .html() : lấy ra cả nội dung html
+        .html(giá trị mới) : thay đổi cả nội html
+    </pre>
+
+<div id="targetA" style="padding: 10px; margin: 20px; color: red">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam cum dicta ea eligendi excepturi harum laborum magni non <a href="">Thẻ a</a> obcaecati odit, omnis perferendis praesentium, rem repellat sint totam <strong>veniam</strong> voluptatem?</div>
+
+<button id="copy">Copy</button>
+
+<div id="targetB" style="padding: 10px; margin: 20px; color: green">Nội dung ban đầu của targetB</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#copy').on('click', function () {
+            // lấy ra
+            var html1 = $('#targetA').html();
+            // gán vào
+            $('#targetB').html(html1);
+        });
+    });
+</script>
+
+
+</body>
+</html>
