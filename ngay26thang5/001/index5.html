@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Chọn selectorA nằm trong selectorB</h1>
+
+<div class="container">
+    <a href="">Thẻ liên kết a nằm trong container</a>
+</div>
+
+    <a href="">Thẻ liên kết a năm bên ngoài container</a>
+
+<button id="control">Nút điều khiển</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+        // nội dung jquery
+        // gắn sự kiện click vào trong #control
+        // $('#control') chọn thẻ có id là control
+        $('#control').click(function(){
+            $('.container a').css('color', 'red');
+        });
+
+    });
+</script>
+
+</body>
+</html>
