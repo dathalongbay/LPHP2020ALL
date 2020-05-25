@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <pre>
+        Cài đặt thư viện jquery
+        Cách 1 : cài đặt CDN
+        cách 2 : download về máy và dẫn link vào file html
+        $(document).ready();
+        => phân tích câu lệnh bên trên
+        $ đại diện khởi đầu cho bộ chọn ( selector ) trong jquery
+        bộ chọn chính là cách để chọn 1 thẻ html hay 1 nhóm html giống như
+        trong css có id và class
+        id dùng #id
+        class dùng .class
+        $() => bộ chọn trong jquery
+        document có nghĩa là chọn toàn bộ trang html
+        $(document) : selector bộ chọn văn bản html
+        phương thức .ready(); có nghĩa là khi mà toàn bộ trang html
+        đã tải xong các thẻ html theo mô hình DOM
+
+
+        làm quen với khai niệm callback có nghĩa là hàm được gọi sau khi
+        1 hành động dã được thực hiện xong
+        callback thường là 1 function không có tên
+        function() { // nội dung của function } => cú pháp điển hình của 1 callback
+
+        gộp $(document).ready(); và callback function() {} vào làm một
+
+        $(document).ready(callback);
+        ->
+        $(document).ready(function() {});
+        => thêm thử 1 lệnh vào trong callback
+        $(document).ready(function() {
+            alert('nội dung của callback document ready');
+        });
+
+        có nghĩa là khi trang html đã load xong cấu trúc thẻ
+        thì sẽ gọi đến callback bên trong ready(callback)
+
+    </pre>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            alert('nội dung của callback sau khi document đã load xong');
+        });
+
+    </script>
+</body>
+</html>
