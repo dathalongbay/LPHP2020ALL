@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <pre>
+        lấy giá trị từ 1 ô input , select , textarea
+        tất cả thẻ giá trị nằm form
+        .val() là lấy ra giá trị hiện tại
+        thay đổi giá trị của nó
+        .val(giá trị mới)
+    </pre>
+
+    <form>
+        <p>
+            <input name="ho" value="" placeholder="nhập họ của bạn">
+        </p>
+        <p>
+            <input name="ten" value="" placeholder="nhập tên của bạn">
+        </p>
+
+        <p>
+            <input name="hoten" value="">
+        </p>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('input[name="ho"]').on('change', function () {
+                var ho = $('input[name="ho"]').val();
+                var ten = $('input[name="ten"]').val();
+
+                var hoten = ho + ' ' + ten;
+                $('input[name="hoten"]').val(hoten);
+            });
+
+            $('input[name="ten"]').on('change', function () {
+                var ho = $('input[name="ho"]').val();
+                var ten = $('input[name="ten"]').val();
+
+                var hoten = ho + ' ' + ten;
+                $('input[name="hoten"]').val(hoten);
+            });
+        });
+    </script>
+
+</body>
+</html>
