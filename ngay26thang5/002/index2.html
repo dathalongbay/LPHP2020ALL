@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        .target {
+            width: 150px;
+            height: 150px;
+            background-color: #ae7e35;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<pre>
+    Phương thức .on cho phép gắn 1 hay nhiều event vào 1 selector jquery
+</pre>
+
+<div class="target">
+    Target 1
+</div>
+
+<div class="target">
+    Target 2
+</div>
+
+<div class="target">
+    Target 3
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $('.target').on({
+            /*click: function () {
+                alert('click');
+            },*/
+            dblclick: function () {
+                alert('double click');
+            },
+            mouseenter: function () {
+                $(this).css('background-color', 'red');
+            },
+            mouseleave: function () {
+                $(this).css('background-color', '#ae7e35');
+            }
+        });
+
+
+    });
+</script>
+</body>
+</html>
