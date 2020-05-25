@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        #target {
+            padding: 20px;
+            border: 1px solid red;
+            background-color: greenyellow;
+            margin-bottom: 20px;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <pre>
+        remove() xóa bỏ
+        empty() làm rỗng
+    </pre>
+
+    <div id="target">
+
+        Vivamus suscipit tortor eget felis porttitor volutpat. Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel
+
+    </div>
+
+    <button id="remove">remove()</button>
+    <button id="empty">empty()</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#remove').on('click', function () {
+            $('#target').remove();
+        });
+
+        $('#empty').on('click', function () {
+            $('#target').empty();
+        });
+    });
+</script>
+</body>
+</html>
