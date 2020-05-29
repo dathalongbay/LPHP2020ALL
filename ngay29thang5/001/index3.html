@@ -52,6 +52,26 @@
 
             $('#addStudent').on('click', function () {
 
+                var idr = 0;
+
+                idr = $('tbody > tr').length;
+                idr = parseInt(idr);
+                idr++;
+
+                var trow = '<tr>\n' +
+                    '                <td>'+idr+'</td>\n' +
+                    '                <td>\n' +
+                    '                    <input type="text" name="student[]" value="">\n' +
+                    '                </td>\n' +
+                    '                <td>\n' +
+                    '                    <input type="text" name="point[]" value="">\n' +
+                    '                </td>\n' +
+                    '                <td>\n' +
+                    '                    <button class="btn btn-warning removeStudent">Xóa</button>\n' +
+                    '                </td>\n' +
+                    '            </tr>';
+                trow += '';
+                $('tbody').append(trow);
             });
 
             $('#removeStudent').on('click', function () {
