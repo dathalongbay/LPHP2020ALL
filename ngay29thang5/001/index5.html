@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
+
+
+    <style type="text/css">
+        .abc > div {
+            background-color: #ae7e35;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Demo owl carousel</h1>
+
+    <pre>
+        B1 : download về
+        B2 : copy folder đó vào cùng cấp với file html hiện tại
+        B3 : sử dụng đường dẫn tương đối trong html để load thư viện
+        B4 : tạo code html
+        B5 : gọi plugin trong document ready
+    </pre>
+    <!-- Set up your HTML -->
+    <div class="abc">
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+        <div> Your Content </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".abc").owlCarousel();
+        });
+    </script>
+</body>
+</html>
