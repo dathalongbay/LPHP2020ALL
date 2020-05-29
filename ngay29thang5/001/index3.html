@@ -3,18 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
-    <pre>
-        Unlimited input
-    </pre>
+    <h1>
+        Unlimited table row
+    </h1>
 
-    <form>
-        <div class="row">
+    <button id="addStudent" class="btn btn-info">Thêm sinh viên</button>
 
-        </div>
-    </form>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Sinh viên</th>
+            <th>Điểm</th>
+            <th>Hành động</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    <input type="text" name="student[]" value="">
+                </td>
+                <td>
+                    <input type="text" name="point[]" value="">
+                </td>
+                <td>
+                    <button class="btn btn-warning removeStudent">Xóa</button>
+                </td>
+            </tr>
 
+        </tbody>
+    </table>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#addStudent').on('click', function () {
+
+            });
+
+            $('#removeStudent').on('click', function () {
+
+            });
+
+        });
+    </script>
 </body>
 </html>
