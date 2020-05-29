@@ -74,9 +74,12 @@
                 $('tbody').append(trow);
             });
 
-            $('#removeStudent').on('click', function () {
+            // áp dụng cho mô hình DOM được load sau khi trang đã load thành công
+            $('body').on('click', '.removeStudent', function () {
 
+                var tr = $(this).closest('tr').remove();
             });
+
 
         });
     </script>
