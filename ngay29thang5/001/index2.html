@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        #target {
+            width: 150px;
+            height: 150px;
+            border: 1px solid red;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="target">
+    target
+</div>
+
+<button id="control">Control</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#control').on('click', function () {
+            var w = $('#target').width();
+            var h = $('#target').height();
+
+            var iw = $('#target').innerWidth();
+            var ih = $('#target').innerHeight();
+
+            var txt = 'chiều rộng ' + w;
+            // phép nối với chính bản thân nó +=
+            txt += '<br> chiều cao ' + h;
+            txt += '<br> chiều rộng gồm padding ' + iw;
+            txt += '<br> chiều cao gồm padding ' + ih;
+            $('#target').html(txt);
+
+        });
+
+    });
+</script>
+
+</body>
+</html>
