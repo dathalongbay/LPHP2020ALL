@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -13,7 +15,7 @@
     </pre>
 
     <div class="container">
-        <select name="province1">
+        <select name="province1" class="select2demo">
             <option value="1">Hà nội</option>
             <option value="2">Hồ chí minh</option>
             <option value="3">Đà nẵng</option>
@@ -29,7 +31,7 @@
     </div>
 
     <div class="container" style="margin-top: 50px">
-        <select name="province2" multiple>
+        <select name="province2" multiple class="select2demo">
             <option value="1">Hà nội</option>
             <option value="2">Hồ chí minh</option>
             <option value="3">Đà nẵng</option>
@@ -48,8 +50,15 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
+
+            $('.select2demo').select2({
+                theme: "classic",
+                placeholder: 'Chọn 1 tỉnh bất kỳ'
+            });
 
 
         });
