@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+        #target {
+            width: 150px;
+            height: 150px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="target">
+ target
+</div>
+
+<button id="control">Control</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#control').on('click', function () {
+            $('#target').css('background-color', 'green');
+            $('#target').css({'background-color':'green','color': 'red','padding':'50px', 'font-size': '36px'});
+
+
+        });
+
+    });
+</script>
+
+</body>
+</html>
