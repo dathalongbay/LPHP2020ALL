@@ -51,24 +51,34 @@
 
             console.log(topcss);
             if (row % 2 == 1) {
+                // hàng lẻ
                 if (i % 2 == 1) {
+                    // ô lẻ màu trắng
                     bg = 'white';
                 } else {
+                    // ô chẵn màu xanh
                     bg = 'green';
                 }
             } else {
+                // hàng chẵn
                 if (i % 2 == 1) {
+                    // ổ lẻ màu xanh
                     bg = 'green';
                 } else {
+                    // ô chẵn màu trắng
                     bg = 'white';
                 }
             }
 
-            html += '<div class="zone" style="background-color: '+bg+'; top: '+topcss+'px; left: '+left+'px">'+i+'</div>';
-            left += 100;
+            html = html + '<div class="zone" style="background-color: '+bg+'; top: '+topcss+'px; left: '+left+'px">'+i+'</div>';
+            left = left + 100;
             if ((i % 8) == 0) {
+
+                // mỗi hàng mới reset left về 0
                 left = 0;
-                topcss += 100;
+                // tăng topcss thêm 100 đơn vị
+                topcss = topcss + 100;
+                // tăng số hàng thêm 1 đơn vị
                 row++;
             }
         }

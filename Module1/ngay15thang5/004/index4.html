@@ -74,6 +74,7 @@
                 var d_sn = document.getElementById('day').value;
                 var d2 = new Date(currentYear, m_sn, d_sn);
 
+
                 var snNext = 0;
                 if (d2.getTime() > d1.getTime()) {
                     snNext = d2;
@@ -84,21 +85,28 @@
 
                 var distance = snNext.getTime() - d1.getTime();
 
+
                 var month = distance/((1000*60*60*24)*30);
+
                 month = Math.floor(month);
                 distance = distance-(month*((1000*60*60*24)*30));
+
+
 
                 var day = distance/(1000*60*60*24);
                 day = Math.floor(day);
                 distance = distance-(day*(1000*60*60*24));
 
+
                 var hour = distance/(1000*60*60);
                 hour = Math.floor(hour);
                 distance = distance-(hour*(1000*60*60));
 
+
                 var phut = distance/(1000*60);
                 phut = Math.floor(phut);
                 distance = distance-(phut*(1000*60));
+
 
                 var s = distance/(1000);
                 s = Math.floor(s);
@@ -114,9 +122,6 @@
             }, 1000);
         };
     </script>
-
-
-
 
 
 </body>
