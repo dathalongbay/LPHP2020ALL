@@ -18,7 +18,7 @@
     $hoten2 = 'Lê thùy linh';
     echo '<br>chào ' . $hoten2;
 
-    
+
     // cách 3 đặt biến trực tiếp trong nháy kép mà không phải nối chuỗi
 $hoten3 = "Lê minh quân 1";
 
