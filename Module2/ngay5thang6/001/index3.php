@@ -23,18 +23,38 @@
     // nếu tồn tại isset() trả về true
     // nếu không tồn tại thì trả về false
     // && toán từ AND thỏa mãn 2 điều kiện
-    if (isset($_POST['cannang']) && $_POST['chieucao']) {
+    if (isset($_POST['cannang']) && isset($_POST['chieucao'])) {
         $cannang = $_POST['cannang'];
         $chieucao = $_POST['chieucao'];
         if ($cannang > 0 && $chieucao > 0) {
             $bmi = $cannang/($chieucao*$chieucao);
         } else {
-            $errors[] = 'Chiều cao hay cân nặng không hợp lệ';
+            $errors[] = 'Chiều cao không hợp lệ';
+            $errors[] = 'Hay cân nặng không hợp lệ';
+            $errors[] = 'Vui lòng kiểm tra lại';
         }
     }
 
     if (isset($bmi)) {
         echo "<div style=\"color:red\">Chỉ số BMI là : $bmi</div>";
+
+        $phanloai = '';
+        if ($bmi > 0 && $bmi < 18.5) {
+            $phanloai = 'dưới chuẩn';
+        } elseif ($bmi >= 18.5 && $bmi <= 24.9) {
+            $phanloai = 'bình thường';
+        }elseif ($bmi >= 25 && $bmi <= 29.9) {
+            $phanloai = 'thừa cần';
+        }elseif ($bmi >= 30 && $bmi <= 34.9) {
+            $phanloai = 'béo phì độ 1';
+        }elseif ($bmi >= 35 && $bmi <= 39.9) {
+            $phanloai = 'béo phì độ 2';
+        } elseif ($bmi >= 40) {
+            $phanloai = 'béo phì độ 3';
+        } else {
+            $phanloai = 'chỉ số bmi không hợp lê.';
+        }
+        echo "<div style=\"color:red\">Phân loại theo BMI : $phanloai</div>";
     }
 
     ?>
@@ -49,6 +69,20 @@
         khi 1 form có action="" thì nó sẽ gửi dữ liệu đến chính file đó
     </pre>
 
+
+    <?php
+    // in ra thông báo lỗi nếu có
+    // count() trả về số phần tử của 1 mảng array trong php
+    if (isset($errors) && count($errors) > 0) {
+        // không thể in mảng bằng lệnh echo
+        // chuyển 1 mảng thành 1 chuỗi bằng hàm implode()
+        // implode('ký tự phân tách các phần tử của mảng', $mangPHP)
+        echo "<pre>";
+        print_r($errors);
+        echo "</pre>";
+        echo "<div style=\"color:orange\">Thông báo lỗi : " . implode(' <br> ', $errors) . "</div>";
+    }
+    ?>
     <div>
         <form name="bmi" action="" method="post">
             <p>
