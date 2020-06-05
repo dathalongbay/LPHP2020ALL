@@ -19,6 +19,10 @@ $cities[1] = ['ten' => 'hà nội', 'danso' => 10000000, 'gdp' => 200000000];
 $cities[2] = ['ten' => 'hồ chí minh', 'danso' => 18000000, 'gdp' => 400000000];
 $cities[3] = ['ten' => 'đà nẵng', 'danso' => 2000000, 'gdp' => 10000000];
 
+$cities[1]['quanhuyen'] = ['hoàn kiếm', 'tây hồ', 'hoàng mai'];
+$cities[2]['quanhuyen'] = ['quận 1', 'quận thủ đức', 'quận 12'];
+$cities[3]['quanhuyen'] = ['quận ngũ hành sơn', 'quận sơn trà'];
+
 echo '<pre>';
 print_r($cities);
 echo '</pre>';
