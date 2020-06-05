@@ -23,6 +23,8 @@ $cities[1]['quanhuyen'] = ['hoàn kiếm', 'tây hồ', 'hoàng mai'];
 $cities[2]['quanhuyen'] = ['quận 1', 'quận thủ đức', 'quận 12'];
 $cities[3]['quanhuyen'] = ['quận ngũ hành sơn', 'quận sơn trà'];
 
+//
+
 echo '<pre>';
 print_r($cities);
 echo '</pre>';
