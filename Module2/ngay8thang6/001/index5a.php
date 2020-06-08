@@ -44,12 +44,13 @@
             <tbody>
 
                 <?php foreach ($students as $studentKey => $student) {
-                    echo '<tr>';
-                        echo '<td>' . $student['id'] . '</td>';
-                        echo '<td>' . $student['name'] . '</td>';
-                        echo '<td>' . $student['age'] . '</td>';
-                        echo '<td>' . $student['location'] .'</td>';
-                    echo '</tr>';
+                    $row = '<tr>';
+                    $row .= '<td>' . $student['id'] . '</td>';
+                    $row .= '<td>' . $student['name'] . '</td>';
+                    $row .= '<td>' . $student['age'] . '</td>';
+                    $row .= '<td>' . $student['location'] .'</td>';
+                    $row .= '</tr>';
+                    echo $row;
                 } ?>
                <!-- <tr>
                     <td>John</td>
