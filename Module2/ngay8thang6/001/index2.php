@@ -28,12 +28,10 @@
     // nháy kép bên trong là html
     echo '<select name="ngay">';
     for ($i = 1;$i <=31; $i++) { ?>
-        <option value="<?php echo $i ?>">Ngày <?php echo $i ?></option>';
+        <option value="<?php echo $i ?>">Ngày <?php echo $i ?></option>
     <?php } // đóng ngặc của for
     echo '</select>';
-
-    echo $select;
-
+    
     ?>
 
     <br>
