@@ -24,6 +24,16 @@
                 input -> output
                 => Câu hỏi số 1 : hàm này cần các tham số gì ?
                 Các tham số chính là các đầu vào input của bài toàn
+                nếu bài toán có nhiều hơn 3 tham số đầu vào
+                ta nên truyền tham số dưới dạng mảng
+
+                nếu hàm có từ 3 tham số trở xuống có thể
+                truyền theo dạng
+                function grossToNet($input1, $input2, $input3) {
+                    // Nội dung của function
+                }
+
+
                 => câu hỏi số 2 : hàm này trả về cái gì ?
                 Kết quả cuối cùng là cái chúng ta cần trả về
                 chính là lương net ?
