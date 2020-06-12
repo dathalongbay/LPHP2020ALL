@@ -11,17 +11,38 @@
 </head>
 <body>
 
+    <?php
+    // tạo ra 2 biến mặc định
+    $thu_nhap = '';
+    $so_nguoi_phu_thuoc = '';
+
+
+    // isset() kiểm tra xem có tồn tại hay không
+    // !empty() kiểm tra xem có rỗng hay không
+    // !empty() trả về true nêu không rỗng và trả về false nếu có rỗng
+    if (isset($_POST) && !empty($_POST)) {
+        $thu_nhap = isset($_POST['thu_nhap']) ? (int)$_POST['thu_nhap'] : 0;
+        $so_nguoi_phu_thuoc = isset($_POST['so_nguoi_phu_thuoc']) ? (int)$_POST['so_nguoi_phu_thuoc'] : 0;
+
+
+        $luong_gross = $thu_nhap;
+    }
+
+
+
+    ?>
+
     <div class="container">
         <div class="row">
             <h1>Công cụ tính lương Gross sang Net / Net sang Gross chuẩn 2020</h1>
-            <form action="">
+            <form name="gross" action="" method="post">
                 <div class="form-group">
                     <label for="thunhap">Thu nhập :</label>
-                    <input type="text" name="thu_nhap" class="form-control" placeholder="Nhập thu nhập" id="thunhap" autocomplete="off">
+                    <input type="text" name="thu_nhap" class="form-control" placeholder="Nhập thu nhập" id="thunhap" autocomplete="off" value="<?php echo $thu_nhap ?>">
                 </div>
                 <div class="form-group">
                     <label for="so_nguoi_phu_thuoc">Số người phụ thuộc :</label>
-                    <input type="text" name="so_nguoi_phu_thuoc" class="form-control" placeholder="Số người phụ thuộc" id="so_nguoi_phu_thuoc">
+                    <input type="text" name="so_nguoi_phu_thuoc" class="form-control" placeholder="Số người phụ thuộc" id="so_nguoi_phu_thuoc" value="<?php echo $so_nguoi_phu_thuoc ?>">
                 </div>
 
                 <button type="submit" class="btn btn-primary">GROSS -> NET</button>
@@ -43,7 +64,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td></td>
+                        <td>
+                            <?php echo isset($luong_gross) ? number_format($luong_gross) . ' VND' : ''; ?>
+                        </td>
                         <td></td>
                         <td></td>
                         <td></td>
