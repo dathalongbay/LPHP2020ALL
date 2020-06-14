@@ -32,26 +32,110 @@
     ];
 
 
-    function getMoneyTax($thu_nhap_chiu_thue) {
-        $thue = 0;
+    function getMoneyTax($thu_nhap_chiu_thue, $taxs) {
+        $tong_thue = 0;
+
+        $kq = [];
 
         if ($thu_nhap_chiu_thue > 0) {
             if ($thu_nhap_chiu_thue > 5000000) {
-                $thue = 5000000*5/100;
-                $thu_nhap_chiu_thue_con_lai = $thu_nhap_chiu_thue-5000000;
+                $thue_muc_1 = 5000000*5/100;
+                $taxs[0]['money'] = $thue_muc_1;
+                $tong_thue += $thue_muc_1;
+                $thu_nhap_chiu_thue = $thu_nhap_chiu_thue-5000000;
             } else {
-                $thue = $thu_nhap_chiu_thue*5/100;
+                $thue_muc_1 = $thu_nhap_chiu_thue*5/100;
+                $taxs[0]['money'] = $thue_muc_1;
+                $tong_thue += $thue_muc_1;
+
+                $kq['taxs'] = $taxs;
+                $kq['tong_thue'] = $tong_thue;
+                return $kq;
             }
 
             if ($thu_nhap_chiu_thue > 5000000) {
-                $thue = 5000000*10/100;
-                $thu_nhap_chiu_thue_con_lai = $thu_nhap_chiu_thue-5000000;
+                $thue_muc_2 = 5000000*10/100;
+                $taxs[1]['money'] = $thue_muc_2;
+                $tong_thue += $thue_muc_2;
+                $thu_nhap_chiu_thue = $thu_nhap_chiu_thue-5000000;
             } else {
-                $thue = $thu_nhap_chiu_thue*5/100;
+                $thue_muc_2 = $thu_nhap_chiu_thue*10/100;
+                $taxs[1]['money'] = $thue_muc_2;
+                $tong_thue += $thue_muc_2;
+                $kq['taxs'] = $taxs;
+                $kq['tong_thue'] = $tong_thue;
+                return $kq;
+            }
+
+            if ($thu_nhap_chiu_thue > 8000000) {
+                $thue_muc_3 = 8000000*15/100;
+                $taxs[2]['money'] = $thue_muc_3;
+                $tong_thue += $thue_muc_3;
+                $thu_nhap_chiu_thue = $thu_nhap_chiu_thue-8000000;
+            } else {
+                $thue_muc_3 = $thu_nhap_chiu_thue*15/100;
+                $taxs[2]['money'] = $thue_muc_3;
+                $tong_thue += $thue_muc_3;
+                $kq['taxs'] = $taxs;
+                $kq['tong_thue'] = $tong_thue;
+                return $kq;
+            }
+
+            if ($thu_nhap_chiu_thue > 14000000) {
+                $thue_muc_4 = 14000000*20/100;
+                $taxs[3]['money'] = $thue_muc_4;
+                $tong_thue += $thue_muc_4;
+                $thu_nhap_chiu_thue = $thu_nhap_chiu_thue-14000000;
+            } else {
+                $thue_muc_4 = $thu_nhap_chiu_thue*20/100;
+                $taxs[3]['money'] = $thue_muc_4;
+                $tong_thue += $thue_muc_4;
+                $kq['taxs'] = $taxs;
+                $kq['tong_thue'] = $tong_thue;
+                return $kq;
+            }
+
+            if ($thu_nhap_chiu_thue > 20000000) {
+                $thue_muc_5 = 20000000*25/100;
+                $taxs[4]['money'] = $thue_muc_5;
+                $tong_thue += $thue_muc_5;
+                $thu_nhap_chiu_thue = $thu_nhap_chiu_thue-20000000;
+            } else {
+                $thue_muc_5 = $thu_nhap_chiu_thue*25/100;
+                $taxs[4]['money'] = $thue_muc_5;
+                $tong_thue += $thue_muc_5;
+                $kq['taxs'] = $taxs;
+                $kq['tong_thue'] = $tong_thue;
+                return $kq;
+            }
+
+            if ($thu_nhap_chiu_thue > 28000000) {
+                $thue_muc_6 = 28000000*30/100;
+                $taxs[5]['money'] = $thue_muc_6;
+                $tong_thue += $thue_muc_6;
+                $thu_nhap_chiu_thue = $thu_nhap_chiu_thue-28000000;
+            } else {
+                $thue_muc_6 = $thu_nhap_chiu_thue*30/100;
+                $taxs[5]['money'] = $thue_muc_6;
+                $tong_thue += $thue_muc_6;
+                $kq['taxs'] = $taxs;
+                $kq['tong_thue'] = $tong_thue;
+                return $kq;
+            }
+
+            if ($thu_nhap_chiu_thue > 0) {
+                $thue_muc_7 = $thu_nhap_chiu_thue*35/100;
+                $taxs[6]['money'] = $thue_muc_7;
+                $tong_thue += $thue_muc_7;
+                $kq['taxs'] = $taxs;
+                $kq['tong_thue'] = $tong_thue;
+                return $kq;
             }
         }
 
-        return $thue;
+        $kq['taxs'] = $taxs;
+        $kq['tong_thue'] = $tong_thue;
+        return $kq;
     }
 
 
@@ -60,6 +144,7 @@
 
 
         $dataReturn = [];
+        $net = 0;
 
         if (isset($input['gross']) && isset($input['bhxh']) && isset($input['bhyt']) && isset($input['bhtn'])
             && isset($input['so_nguoi_phu_thuoc']) && isset($input['giam_tru_ca_nhan']) && isset($input['giam_tru_moi_nguoi_phu_thuoc'])) {
@@ -95,11 +180,38 @@
             // thu nhập chịu thuế là
             $thu_nhap_chiu_thue = $gross - ($tong_bao_hiem + $giam_tru_phu_thuoc + $giam_tru_ca_nhan);
 
+            // thu nhập trước thuế
+            $thu_nhap_truoc_thue = $gross - $tong_bao_hiem;
+
+
+            // mảng thuế thu nhập cá nhân
+            $taxs = [
+                ['title' => 'Đến 5 triệu VNĐ', 'tax' => 5, 'money' => 0],
+                ['title' => 'Trên 5 triệu VNĐ đến 10 triệu VNĐ', 'tax' => 10, 'money' => 0],
+                ['title' => 'Trên 10 triệu VNĐ đến 18 triệu VNĐ', 'tax' => 15, 'money' => 0],
+                ['title' => 'Trên 18 triệu VNĐ đến 32 triệu VNĐ', 'tax' => 20, 'money' => 0],
+                ['title' => 'Trên 32 triệu VNĐ đến 52 triệu VNĐ	', 'tax' => 25, 'money' => 0],
+                ['title' => 'Trên 52 triệu VNĐ đến 80 triệu VNĐ	', 'tax' => 30, 'money' => 0],
+                ['title' => 'Trên 80 triệu VNĐ', 'tax' => 35, 'money' => 0],
+            ];
+
             // thuế thu nhập phải đóng
+            $tax_return = getMoneyTax($thu_nhap_chiu_thue, $taxs);
+            $thue = $tax_return['tong_thue'];
+            $net = $gross - ($tong_bao_hiem + $thue);
 
+            $dataReturn['bhxh'] = $money_bhxh;
+            $dataReturn['bhyt'] = $money_bhyt;
+            $dataReturn['bhtn'] = $money_bhtn;
+            $dataReturn['tong_bao_hiem'] = $tong_bao_hiem;
+            $dataReturn['thue'] = $thue;
+            $dataReturn['thu_nhap_truoc_thue'] = $thu_nhap_truoc_thue;
+            $dataReturn['thu_nhap_chiu_thue'] = $thu_nhap_chiu_thue;
+            $dataReturn['giam_tru_phu_thuoc'] = $giam_tru_phu_thuoc;
+            $dataReturn['taxs'] = $tax_return['taxs'];
+            $dataReturn['net'] = $net;
 
-
-
+            return $dataReturn;
         }
 
         return false;
@@ -130,6 +242,12 @@
         $inputData['giam_tru_ca_nhan'] = 9000000;
         $inputData['giam_tru_moi_nguoi_phu_thuoc'] = 3600000;
         $ketqua = grossToNet($inputData);
+
+        echo "<pre>";
+        print_r($ketqua);
+        echo "</pre>";
+
+        var_dump($ketqua);
     }
 
 
@@ -141,7 +259,7 @@
             <h1>Công cụ tính lương Gross sang Net / Net sang Gross chuẩn 2020</h1>
             <form name="gross" action="" method="post">
                 <div class="form-group">
-                    <label for="thunhap">Thu nhập :</label>
+                    <label for="thunhap" style="color: red">Thu nhập : chỉ nhập từ 0 đến 29800000</label>
                     <input type="text" name="thu_nhap" class="form-control" placeholder="Nhập thu nhập" id="thunhap" autocomplete="off" value="<?php echo $thu_nhap ?>">
                 </div>
                 <div class="form-group">
@@ -171,9 +289,15 @@
                         <td>
                             <?php echo isset($luong_gross) ? number_format($luong_gross) . ' VND' : ''; ?>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>
+                            <?php echo isset($ketqua['tong_bao_hiem']) ? number_format($ketqua['tong_bao_hiem']) . ' VND' : ''; ?>
+                        </td>
+                        <td>
+                            <?php echo isset($ketqua['thue']) ? number_format($ketqua['thue']) . ' VND' : ''; ?>
+                        </td>
+                        <td>
+                            <?php echo isset($ketqua['net']) ? number_format($ketqua['net']) . ' VND' : ''; ?>
+                        </td>
                     </tr>
 
                 </tbody>
@@ -190,51 +314,51 @@
             <tbody>
                 <tr>
                     <td>Lương GROSS</td>
-                    <td></td>
+                    <td><?php echo isset($luong_gross) ? number_format($luong_gross) . ' VND' : ''; ?></td>
                 </tr>
 
                 <tr>
                     <td>Bảo hiểm xã hội (8%)</td>
-                    <td></td>
+                    <td><?php echo isset($ketqua['bhxh']) ? number_format($ketqua['bhxh']) . ' VND' : ''; ?></td>
                 </tr>
 
                 <tr>
                     <td>Bảo hiểm y tế (1.5%)</td>
-                    <td></td>
+                    <td><?php echo isset($ketqua['bhyt']) ? number_format($ketqua['bhyt']) . ' VND' : ''; ?></td>
                 </tr>
 
                 <tr>
                     <td>Bảo hiểm thất nghiệp (1%)</td>
-                    <td></td>
+                    <td><?php echo isset($ketqua['bhtn']) ? number_format($ketqua['bhtn']) . ' VND' : ''; ?></td>
                 </tr>
 
 
 
                 <tr>
                     <td>Thu nhập trước thuế	</td>
-                    <td></td>
+                    <td><?php echo isset($ketqua['thu_nhap_truoc_thue']) ? number_format($ketqua['thu_nhap_truoc_thue']) . ' VND' : ''; ?></td>
                 </tr>
 
 
                 <tr>
                     <td>Giảm trừ gia cảnh bản thân	</td>
-                    <td></td>
+                    <td> <?php echo number_format(9000000) . ' VND'; ?> </td>
                 </tr>
 
 
                 <tr>
                     <td>Giảm trừ gia cảnh người phụ thuộc</td>
-                    <td></td>
+                    <td><?php echo isset($ketqua['giam_tru_phu_thuoc']) ? number_format($ketqua['giam_tru_phu_thuoc']) . ' VND' : ''; ?></td>
                 </tr>
 
                 <tr>
                     <td>Thu nhập chịu thuế	</td>
-                    <td></td>
+                    <td><?php echo isset($ketqua['thu_nhap_chiu_thue']) ? number_format($ketqua['thu_nhap_chiu_thue']) . ' VND' : ''; ?></td>
                 </tr>
 
                 <tr>
                     <td>Thuế thu nhập cá nhân(*)</td>
-                    <td></td>
+                    <td><?php echo isset($ketqua['thue']) ? number_format($ketqua['thue']) . ' VND' : ''; ?></td>
                 </tr>
 
 
@@ -243,7 +367,7 @@
                         Lương NET <br>
                         (Thu nhập trước thuế - Thuế thu nhập cá nhân)
                     </td>
-                    <td></td>
+                    <td><?php echo isset($ketqua['net']) ? number_format($ketqua['net']) . ' VND' : ''; ?></td>
                 </tr>
 
 
@@ -269,13 +393,15 @@
 
                 <tbody>
 
-                    <?php foreach($taxs as $taxItem) : ?>
-                    <tr>
-                        <td><?php echo $taxItem['title'] ?></td>
-                        <td><?php echo $taxItem['tax'] ?>%</td>
-                        <td><?php echo $taxItem['money'] ?></td>
-                    </tr>
-                    <?php endforeach; ?>
+                    <?php if(isset($ketqua['taxs'])) : ?>
+                        <?php foreach($ketqua['taxs'] as $taxItem) : ?>
+                        <tr>
+                            <td><?php echo $taxItem['title'] ?></td>
+                            <td><?php echo $taxItem['tax'] ?>%</td>
+                            <td><?php echo number_format($taxItem['money'])  ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
 
 
                 </tbody>
