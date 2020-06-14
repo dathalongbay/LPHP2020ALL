@@ -30,6 +30,29 @@
     ];
 
 
+    function getMoneyTax($thu_nhap_chiu_thue) {
+        $thue = 0;
+
+        if ($thu_nhap_chiu_thue > 0) {
+            if ($thu_nhap_chiu_thue > 5000000) {
+                $thue = 5000000*5/100;
+                $thu_nhap_chiu_thue_con_lai = $thu_nhap_chiu_thue-5000000;
+            } else {
+                $thue = $thu_nhap_chiu_thue*5/100;
+            }
+
+            if ($thu_nhap_chiu_thue > 5000000) {
+                $thue = 5000000*10/100;
+                $thu_nhap_chiu_thue_con_lai = $thu_nhap_chiu_thue-5000000;
+            } else {
+                $thue = $thu_nhap_chiu_thue*5/100;
+            }
+        }
+
+        return $thue;
+    }
+
+
     // xây dựng hàm
     function grossToNet($input = ['gross' => 0, 'bhxh' => 0.08, 'bhyt' => 0.015, 'bhtn' => 0.01, 'so_nguoi_phu_thuoc' => 0, 'giam_tru_ca_nhan' => 9000000, 'giam_tru_moi_nguoi_phu_thuoc' => 3600000]) {
 
@@ -39,6 +62,40 @@
         if (isset($input['gross']) && isset($input['bhxh']) && isset($input['bhyt']) && isset($input['bhtn'])
             && isset($input['so_nguoi_phu_thuoc']) && isset($input['giam_tru_ca_nhan']) && isset($input['giam_tru_moi_nguoi_phu_thuoc'])) {
             // đủ input để tính toán
+
+            // lương gross
+            $gross = $input['gross'];
+            $tax_bhxh = $input['bhxh'];
+            $tax_bhyt = $input['bhyt'];
+            $tax_bhtn = $input['bhtn'];
+            $so_nguoi_phu_thuoc = $input['so_nguoi_phu_thuoc'];
+            $giam_tru_ca_nhan = $input['giam_tru_ca_nhan'];
+            $giam_tru_moi_nguoi_phu_thuoc = $input['giam_tru_moi_nguoi_phu_thuoc'];
+
+            // số tiền phải đóng bảo hiểm xã hội
+            $money_bhxh = $tax_bhxh*$gross;
+
+            // số tiền phải đóng bảo hiểm y tế
+            $money_bhyt = $tax_bhyt*$gross;
+
+            // số tiền phải đóng bảo hiểm thất nghiệp
+            $money_bhtn = $tax_bhtn*$gross;
+
+            // tổng số tiền phải đóng cho bảo hiểm
+            $tong_bao_hiem = $money_bhxh + $money_bhyt + $money_bhtn;
+
+            // tính thu nhập trước thuế
+            $thu_nhap_truoc_thue = $gross - $tong_bao_hiem;
+
+            // giảm trừ gia cảnh người phụ thuộc
+            $giam_tru_phu_thuoc = $so_nguoi_phu_thuoc*$giam_tru_moi_nguoi_phu_thuoc;
+
+            // thu nhập chịu thuế là
+            $thu_nhap_chiu_thue = $gross - ($tong_bao_hiem + $giam_tru_phu_thuoc + $giam_tru_ca_nhan);
+
+            // thuế thu nhập phải đóng
+
+
 
 
         }
