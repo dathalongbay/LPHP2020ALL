@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,6 +18,17 @@
 
 <div class="container">
     <div class="row">
+
+        <?php
+        if (isset($_SESSION['errors']) && ($_SESSION['errors'])) {
+            // implode chuyển 1 mảng thành 1 chuỗi
+            $msg = implode(',', $_SESSION['errors']);
+            echo "<p style='color:red'>$msg</p>";
+
+            // hủy 1 session cụ thể
+            unset($_SESSION['errors']);
+        }
+        ?>
         <form name="loginFrom" action="action.php" method="post">
             <div class="form-group">
                 <label for="email">Email address:</label>
