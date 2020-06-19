@@ -1,7 +1,7 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: admin
- * Date: 6/19/2020
- * Time: 6:20 PM
- */
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+        </div>
+    </div>
+</footer>
