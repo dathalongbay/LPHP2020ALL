@@ -1,3 +1,10 @@
+<?php
+define("SITE_URL", "http://localhost/128a/LPHP2020ALL/Module2/project/admin/layouts/");
+
+$page = isset($_GET['page']) ? $_GET['page'] : "dashboard";
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +47,7 @@
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
-            <?php include_once '../pages/dashboard.php' ?>
+            <?php include_once '../pages/'.$page.".php" ?>
             <!-- /.container-fluid -->
 
         </div>

@@ -1,7 +1,1 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: admin
- * Date: 6/19/2020
- * Time: 7:02 PM
- */
+<h1>Quản lý đơn hàng</h1>

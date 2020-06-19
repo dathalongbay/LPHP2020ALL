@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="<?php echo SITE_URL.'index.php?page=dashboard' ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Bảng thống kê</span></a>
     </li>
@@ -22,21 +22,21 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="<?php echo SITE_URL.'index.php?page=customer' ?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Quản lý khách hàng</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="<?php echo SITE_URL.'index.php?page=order' ?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Quản lý đơn hàng</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="<?php echo SITE_URL.'index.php?page=product' ?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Quản lý sản phẩm</span></a>
     </li>
