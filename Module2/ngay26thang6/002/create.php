@@ -79,6 +79,28 @@ if (isset($_POST) && !empty($_POST)) {
         if (isset($book_name) && isset($book_price) && isset($book_desc)) {
             $sql = "INSERT INTO book(book_name,book_price,book_desc) VALUES ('$book_name',$book_price,'$book_desc')";
             echo "<br> câu SQL : " . $sql;
+
+            // thực hiện câu query bằng php
+            // bằng hàm mysqli_query()
+            // trong đó tham số đầu tiên là tên biến chứa kết nối đến CSDL
+            // tham só thứ 2 là biến chứa câu SQL
+            $ketqua = mysqli_query($connection, $sql);
+
+            // kiểm tra dữ liệu và giá trị $ketqua
+            var_dump($ketqua);
+
+            // cách viết này có nghĩa là if ($ketqua) khác false , null , rỗng , 0 , khác âm
+            if ($ketqua) {
+                // thành công chuyển hướng về trang index.php
+                // câu lệnh header là câu lệnh chuyển hướng url
+                // truyền url theo cú pháp header("Location: $url");
+                header("Location: index.php");
+                // sau header chuyển hướng thì phải exit
+                exit;
+            } else {
+                // thất bại
+                echo "<div style='color:red'>Thêm sách thất bại</div>";
+            }
         }
 
     } else {
