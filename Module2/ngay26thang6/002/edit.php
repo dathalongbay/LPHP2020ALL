@@ -25,7 +25,7 @@ $userName = "root";
 // password truy cập đến mysql
 $password = "";
 // tên cơ sở dữ liệu
-$databaseName = "22t62020";
+$databaseName = "book";
 
 // tạo ra 1 kết nối đến CSDL
 $connection = mysqli_connect($serverName, $userName, $password, $databaseName);
@@ -58,7 +58,7 @@ echo "Kết nối thành công đến CSDL";
                 </div>
                 <div class="form-group">
                     <label>Mô tả:</label>
-                    <textarea class="form-control" rows="5" name="book_price"></textarea>
+                    <textarea class="form-control" rows="5" name="book_desc"></textarea>
                 </div>
                 <div class="form-group">
                     <input type="submit" name="submit" value="Sửa sách" class="btn btn-info">

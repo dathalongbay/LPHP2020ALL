@@ -25,7 +25,7 @@ $userName = "root";
 // password truy cập đến mysql
 $password = "";
 // tên cơ sở dữ liệu
-$databaseName = "22t62020";
+$databaseName = "book";
 
 // tạo ra 1 kết nối đến CSDL
 $connection = mysqli_connect($serverName, $userName, $password, $databaseName);
@@ -40,6 +40,46 @@ if (!$connection) {
 
 // khi chạy xuống dưới thì có nghĩa là kết nối CSDL thành công
 echo "Kết nối thành công đến CSDL";
+$error = [];
+if (isset($_POST) && !empty($_POST)) {
+    if (isset($_POST['book_name']) && strlen($_POST['book_name']) > 5) {
+        // trim cắt bỏ dấu cách ở hai đầu của chuỗi
+        $book_name = trim($_POST['book_name']);
+    } else {
+        $error[] = "Tên sách không hợp lệ";
+    }
+
+    // is_numeric kiểm trả 1 biến có phải số nếu ko phải số thi trả về false
+    if (isset($_POST['book_price']) && is_numeric($_POST['book_price']) && $_POST['book_price'] > 0) {
+        $book_price = (int)$_POST['book_price'];
+    } else {
+        $error[] = "Giá cuốn sách không hợp lệ";
+    }
+
+    if (isset($_POST['book_desc']) && strlen($_POST['book_desc']) > 5) {
+        // trim cắt bỏ dấu cách ở hai đầu của chuỗi
+        $book_desc = trim($_POST['book_desc']);
+    } else {
+        $error[] = "Mô tả cuốn sách không hợp lệ";
+    }
+
+    if (empty($error)) {
+        // không bị lỗi
+        if (isset($book_name) && isset($book_price) && isset($book_desc)) {
+            $sql = "INSERT INTO book(book_name,book_price,book_desc) VALUES ('$book_name',$book_price,'$book_desc')";
+            echo $sql;
+        }
+
+    } else {
+        // implode chuyển 1 mảng thành 1 chuỗi
+        // tham số đầu tiền là ký tự phân tách của các phần tử trong mảng
+        // khi chuyển thành chuỗi
+        $error_string = implode(", ", $error);
+        // hiển thị lỗi ra
+        echo "<div style='color:red'>$error_string</div>";
+    }
+}
+
 
 ?>
 
@@ -58,7 +98,7 @@ echo "Kết nối thành công đến CSDL";
                     </div>
                     <div class="form-group">
                         <label>Mô tả:</label>
-                        <textarea class="form-control" rows="5" name="book_price"></textarea>
+                        <textarea class="form-control" rows="5" name="book_desc"></textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" name="submit" value="Thêm sách" class="btn btn-info">

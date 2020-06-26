@@ -25,7 +25,7 @@ $userName = "root";
 // password truy cập đến mysql
 $password = "";
 // tên cơ sở dữ liệu
-$databaseName = "22t62020";
+$databaseName = "book";
 
 // tạo ra 1 kết nối đến CSDL
 $connection = mysqli_connect($serverName, $userName, $password, $databaseName);
