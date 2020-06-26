@@ -40,7 +40,18 @@ if (!$connection) {
 
 // khi chạy xuống dưới thì có nghĩa là kết nối CSDL thành công
 echo "Kết nối thành công đến CSDL";
+
+// tạo dữ liệu mẫu cho các ô input để hiển thị ra khi mà validate thất bại
+$book_name = $book_desc = $book_price = '';
+
+
 $error = [];
+
+echo '<br> Hiển thị mảng $_POST';
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+
 if (isset($_POST) && !empty($_POST)) {
     if (isset($_POST['book_name']) && strlen($_POST['book_name']) > 5) {
         // trim cắt bỏ dấu cách ở hai đầu của chuỗi
@@ -67,7 +78,7 @@ if (isset($_POST) && !empty($_POST)) {
         // không bị lỗi
         if (isset($book_name) && isset($book_price) && isset($book_desc)) {
             $sql = "INSERT INTO book(book_name,book_price,book_desc) VALUES ('$book_name',$book_price,'$book_desc')";
-            echo $sql;
+            echo "<br> câu SQL : " . $sql;
         }
 
     } else {
@@ -90,15 +101,15 @@ if (isset($_POST) && !empty($_POST)) {
                 <form name="createbook" action="" method="post">
                     <div class="form-group">
                         <label>Tên cuốn sách:</label>
-                        <input type="text" class="form-control" name="book_name">
+                        <input type="text" class="form-control" name="book_name" value="<?php echo $book_name ?>">
                     </div>
                     <div class="form-group">
                         <label>Giá tiền:</label>
-                        <input type="text" class="form-control" name="book_price">
+                        <input type="text" class="form-control" name="book_price" value="<?php echo $book_price ?>">
                     </div>
                     <div class="form-group">
                         <label>Mô tả:</label>
-                        <textarea class="form-control" rows="5" name="book_desc"></textarea>
+                        <textarea class="form-control" rows="5" name="book_desc"><?php echo $book_desc ?></textarea>
                     </div>
                     <div class="form-group">
                         <input type="submit" name="submit" value="Thêm sách" class="btn btn-info">
