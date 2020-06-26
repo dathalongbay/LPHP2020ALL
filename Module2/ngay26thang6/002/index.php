@@ -39,12 +39,27 @@ if (!$connection) {
 
 
 // khi chạy xuống dưới thì có nghĩa là kết nối CSDL thành công
-echo "Kết nối thành công đến CSDL";
+echo "<br> Kết nối thành công đến CSDL";
+
+$sql = "SELECT * FROM book";
+
+// thực hiện câu truy vấn sql mysqli_query
+// tham số 1 vần là tên biến chưa kết nối MYSQL
+// tham só 2 là câu ssql
+// kết quả truy vấn trả về $result
+$result = mysqli_query($connection, $sql);
+
+echo "<pre>";
+print_r($result);
+echo "</pre>";
+
+
 
 ?>
 
     <div class="container">
         <h1>Quản lý sách CNTT</h1>
+        <p>tài liệu : https://www.w3schools.com/php/php_mysql_select.asp</p>
         <a href="" class="btn btn-info">Thêm sách mới</a>
         <div class="row">
             <div class="col-md-12">
@@ -59,16 +74,44 @@ echo "Kết nối thành công đến CSDL";
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Sách học java</td>
-                        <td>50000</td>
-                        <td>Mô tả</td>
-                        <td>
-                            <a href="" class="btn btn-warning">Sửa</a>
-                            <a href="" class="btn btn-danger">Xóa</a>
-                        </td>
-                    </tr>
+
+
+                    <?php
+                    //  mysqli_num_rows() trả về số bản ghi của $result
+                    if (mysqli_num_rows($result) > 0) {
+                        /**
+                         * mysqli_fetch_assoc($result) lấy ra từng phần tử trong biến
+                         * $result gán cho $row cứ như thế cho đến khi $result
+                         * không còn dữ liệu
+                         * chú ý mỗi lần chạy vòng lặp  mysqli_fetch_assoc($result) chỉ
+                         * trả về 1 bản ghi duy nhất
+                         *
+                         */
+                        while($row = mysqli_fetch_assoc($result)) { // ngoặc nhọn mở
+                            echo "<pre>";
+                            print_r($row);
+                            echo "</pre>"; ?>
+
+                            <tr>
+                                <td><?php echo $row['id'] ?></td>
+                                <td><?php echo $row['book_name'] ?></td>
+                                <td><?php echo $row['book_price'] ?></td>
+                                <td><?php echo $row['book_desc'] ?></td>
+                                <td>
+                                    <a href="" class="btn btn-warning">Sửa</a>
+                                    <a href="" class="btn btn-danger">Xóa</a>
+                                </td>
+                            </tr>
+                    <?php
+                        } // ngoặc nhọn đóng của vòng lặp while
+                       ?>
+
+                        <?php
+                    } else {
+                        ?> Không tìm thấy bản ghi nào phù hợp <?php
+                    }
+                    ?>
+
 
                     </tbody>
                 </table>
