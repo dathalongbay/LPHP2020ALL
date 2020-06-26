@@ -11,5 +11,30 @@
 </head>
 <body>
 
+    <div class="container">
+        <h1>Thêm mới 1 cuốn sách CNTT</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <form name="createbook" action="" method="post">
+                    <div class="form-group">
+                        <label>Tên cuốn sách:</label>
+                        <input type="text" class="form-control" name="book_name">
+                    </div>
+                    <div class="form-group">
+                        <label>Giá tiền:</label>
+                        <input type="text" class="form-control" name="book_price">
+                    </div>
+                    <div class="form-group">
+                        <label>Mô tả:</label>
+                        <textarea class="form-control" rows="5" name="book_price"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" value="Thêm sách" class="btn btn-info">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
