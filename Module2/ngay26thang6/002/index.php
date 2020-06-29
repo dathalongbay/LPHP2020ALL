@@ -99,7 +99,7 @@ echo "</pre>";
                                 <td><?php echo $row['book_desc'] ?></td>
                                 <td>
                                     <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-warning">Sửa</a>
-                                    <a href="" class="btn btn-danger">Xóa</a>
+                                    <a href="delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger deleteBook">Xóa</a>
                                 </td>
                             </tr>
                     <?php
@@ -119,7 +119,31 @@ echo "</pre>";
         </div>
     </div>
 
+<script
+        src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"></script>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".deleteBook").on("click", function (e) {
+
+            // thẻ a khi click vào nó chuyển hướng ngay lập tức
+            // chặn sự kiện chuyển hướng mặc định của thẻ a thì
+            // phải sử dụng e.preventDefault();
+            e.preventDefault();
+
+            var r = confirm("Đồng ý xóa sách !");
+            // ấn ok để xác nhận
+            if (r == true) {
+                var href = $(this).attr("href");
+                window.location.href = href;
+            }
+        });
+    });
+
+
+</script>
 
 
 </body>
