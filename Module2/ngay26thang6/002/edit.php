@@ -77,13 +77,37 @@ if (isset($_GET['id'])) {
     // đổ dữ liệu cũ vào các ô input
 }
 
+// cập nhật dữ liệu mới vào trong db
+if (isset($_POST) && !empty($_POST)) {
+    if (isset($_POST['book_name']) && isset($_POST['book_price'])  && isset($_POST['book_desc'])) {
+        $book_name = $_POST['book_name'];
+        $book_price = (int)$_POST['book_price'];
+        $book_desc = $_POST['book_desc'];
+        $book_id = (int) $_GET['id'];
+        $sqlUpdate = "UPDATE book SET book_name = '$book_name' , book_price = $book_price , book_desc = '$book_desc' WHERE id = $book_id";
+
+        echo "<br> sql update : $sqlUpdate";
+
+        $ketquaSQL = mysqli_query($connection, $sqlUpdate);
+        if ($ketquaSQL) {
+            header("Location: edit.php?id=$book_id");
+            exit;
+        } else {
+            echo "<br> Có lỗi xảy ra : " . mysqli_error($connection);
+        }
+    }
+
+
+
+}
+
 ?>
 
 <div class="container">
     <h1>Sửa 1 cuốn sách CNTT</h1>
     <div class="row">
         <div class="col-md-12">
-            <form name="createbook" action="" method="post">
+            <form name="createbook" action="edit.php?id=<?php echo isset($row['id']) ? (int)$row['id'] : 0;  ?>" method="post">
                 <div class="form-group">
                     <label>Tên cuốn sách:</label>
                     <input type="text" class="form-control" name="book_name"
