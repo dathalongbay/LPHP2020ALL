@@ -39,7 +39,22 @@ if (!$connection) {
 
 
 // khi chạy xuống dưới thì có nghĩa là kết nối CSDL thành công
-echo "Kết nối thành công đến CSDL";
+echo "<br> Kết nối thành công đến CSDL";
+
+// lấy query string trên url và cụ thể là biến id trong query string
+// query string chính là chuỗi xuất hiện đằng sau dấu ? trên url
+// in ra query string
+echo "<br> in ra query string từ URL : ";
+echo "<pre>";
+print_r($_GET);
+echo "</pre>";
+if (isset($_GET['id'])) {
+    $book_id = (int) $_GET['id'];
+    echo "<br> id của cuốn sách đang cần sửa : $book_id";
+
+    $sql = "SELECT * FROM book WHERE id = $book_id";
+    echo "<br> sql : $sql";
+}
 
 ?>
 

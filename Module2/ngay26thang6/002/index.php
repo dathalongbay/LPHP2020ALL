@@ -98,7 +98,7 @@ echo "</pre>";
                                 <td><?php echo $row['book_price'] ?></td>
                                 <td><?php echo $row['book_desc'] ?></td>
                                 <td>
-                                    <a href="" class="btn btn-warning">Sửa</a>
+                                    <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-warning">Sửa</a>
                                     <a href="" class="btn btn-danger">Xóa</a>
                                 </td>
                             </tr>
