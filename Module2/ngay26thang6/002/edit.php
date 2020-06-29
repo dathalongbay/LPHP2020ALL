@@ -41,6 +41,9 @@ if (!$connection) {
 // khi chạy xuống dưới thì có nghĩa là kết nối CSDL thành công
 echo "<br> Kết nối thành công đến CSDL";
 
+// gán $row là 1 mảng rỗng mặc định
+$row = [];
+
 // lấy query string trên url và cụ thể là biến id trong query string
 // query string chính là chuỗi xuất hiện đằng sau dấu ? trên url
 // in ra query string
@@ -54,6 +57,24 @@ if (isset($_GET['id'])) {
 
     $sql = "SELECT * FROM book WHERE id = $book_id";
     echo "<br> sql : $sql";
+
+    // thực hiện câu truy vấn sql mysqli_query
+// tham số 1 vần là tên biến chưa kết nối MYSQL
+// tham só 2 là câu ssql
+// kết quả truy vấn trả về $result
+    $result = mysqli_query($connection, $sql);
+
+    echo "<pre>";
+    print_r($result);
+    echo "</pre>";
+
+    // chỉ có 1 kết quả duy nhất nên ko sử dụng while
+    $row = mysqli_fetch_assoc($result);
+
+    echo "<pre>";
+    print_r($row);
+    echo "</pre>";
+    // đổ dữ liệu cũ vào các ô input
 }
 
 ?>
@@ -65,15 +86,17 @@ if (isset($_GET['id'])) {
             <form name="createbook" action="" method="post">
                 <div class="form-group">
                     <label>Tên cuốn sách:</label>
-                    <input type="text" class="form-control" name="book_name">
+                    <input type="text" class="form-control" name="book_name"
+                           value="<?php echo isset($row['book_name']) ? $row['book_name'] : '';  ?>">
                 </div>
                 <div class="form-group">
                     <label>Giá tiền:</label>
-                    <input type="text" class="form-control" name="book_price">
+                    <input type="text" class="form-control" name="book_price"
+                           value="<?php echo isset($row['book_price']) ? $row['book_price'] : '';  ?>">
                 </div>
                 <div class="form-group">
                     <label>Mô tả:</label>
-                    <textarea class="form-control" rows="5" name="book_desc"></textarea>
+                    <textarea class="form-control" rows="5" name="book_desc"><?php echo isset($row['book_desc']) ? $row['book_desc'] : '';  ?></textarea>
                 </div>
                 <div class="form-group">
                     <input type="submit" name="submit" value="Sửa sách" class="btn btn-info">
