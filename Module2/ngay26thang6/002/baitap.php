@@ -18,7 +18,7 @@
     1 đại diện cho nam . kiểu radio trong form
     quê quán ( varchar ) input text
     điểm ( int ) input text
-    sử dụng cú pháp php mysql theo hướng hàm để làm 
+    sử dụng cú pháp php mysql theo hướng hàm để làm
 </pre>
 
 </body>
