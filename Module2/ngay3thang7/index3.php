@@ -30,7 +30,7 @@ class InputText {
 
 
     public function ouputHTML() {
-        $html = "<input type='' name='' value='' placeholder='' style='' />";
+        $html = "<input type='$this->type' name='$this->name' value='$this->value' placeholder='$this->placeholder' style='$this->style' />";
 
         return $html;
     }
@@ -45,3 +45,4 @@ print_r($input1);
 echo "</pre>";
 
 // gọi đến method outputHtml();
+echo $input1->ouputHTML();
