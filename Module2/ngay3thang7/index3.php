@@ -28,6 +28,13 @@ class InputText {
         $this->style = $style_param;
     }
 
+
+    public function ouputHTML() {
+        $html = "<input type='' name='' value='' placeholder='' style='' />";
+
+        return $html;
+    }
+
 }
 
 $input1 = new InputText('text', 'abc', '', 'Nhập demo input', '');
@@ -36,3 +43,5 @@ $input1 = new InputText('text', 'abc', '', 'Nhập demo input', '');
 echo "<pre>";
 print_r($input1);
 echo "</pre>";
+
+// gọi đến method outputHtml();
