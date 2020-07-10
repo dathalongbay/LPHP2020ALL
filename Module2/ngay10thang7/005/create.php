@@ -52,6 +52,22 @@ echo "<pre>";
 print_r($_POST);
 echo "</pre>";
 
+echo "file upload --- <pre>";
+print_r($_FILES);
+echo "</pre>";
+
+
+if (isset($_FILES['book_image']['tmp_name']) && !empty($_FILES['book_image']['tmp_name'])) {
+    $uploadDir = "/uploads";
+    $uploadFile = $uploadDir.'/'.basename($_FILES['book_image']['name']);
+
+
+    echo '<br> đường dẫn upload file là : ' . $uploadFile;
+
+    echo '<br> ko sử dụng basename() ' . 'abc/abc1/123.jpg';
+    echo '<br> có sử dụng basename() ' . basename('abc/abc1/123.jpg');
+}
+
 if (isset($_POST) && !empty($_POST)) {
     if (isset($_POST['book_name']) && strlen($_POST['book_name']) > 5) {
         // trim cắt bỏ dấu cách ở hai đầu của chuỗi
@@ -94,7 +110,7 @@ if (isset($_POST) && !empty($_POST)) {
                 // thành công chuyển hướng về trang index.php
                 // câu lệnh header là câu lệnh chuyển hướng url
                 // truyền url theo cú pháp header("Location: $url");
-                header("Location: index.php");
+                //header("Location: index.php");
                 // sau header chuyển hướng thì phải exit
                 exit;
             } else {
@@ -120,11 +136,16 @@ if (isset($_POST) && !empty($_POST)) {
         <h1>Thêm mới 1 cuốn sách CNTT</h1>
         <div class="row">
             <div class="col-md-12">
-                <form name="createbook" action="" method="post">
+                <form name="createbook" action="" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>Tên cuốn sách:</label>
                         <input type="text" class="form-control" name="book_name" value="<?php echo $book_name ?>">
                     </div>
+                    <div class="form-group">
+                        <label>Ảnh đại diện:</label>
+                        <input type="file" class="form-control" name="book_image">
+                    </div>
+
                     <div class="form-group">
                         <label>Giá tiền:</label>
                         <input type="text" class="form-control" name="book_price" value="<?php echo $book_price ?>">

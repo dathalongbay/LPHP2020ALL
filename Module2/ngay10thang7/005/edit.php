@@ -107,11 +107,16 @@ if (isset($_POST) && !empty($_POST)) {
     <h1>Sửa 1 cuốn sách CNTT</h1>
     <div class="row">
         <div class="col-md-12">
-            <form name="createbook" action="edit.php?id=<?php echo isset($row['id']) ? (int)$row['id'] : 0;  ?>" method="post">
+            <form name="createbook" action="edit.php?id=<?php echo isset($row['id']) ? (int)$row['id'] : 0;  ?>" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Tên cuốn sách:</label>
                     <input type="text" class="form-control" name="book_name"
                            value="<?php echo isset($row['book_name']) ? $row['book_name'] : '';  ?>">
+                </div>
+
+                <div class="form-group">
+                    <label>Ảnh đại diện:</label>
+                    <input type="file" class="form-control" name="book_image">
                 </div>
                 <div class="form-group">
                     <label>Giá tiền:</label>
