@@ -58,7 +58,7 @@ echo "</pre>";
 
 
 if (isset($_FILES['book_image']['tmp_name']) && !empty($_FILES['book_image']['tmp_name'])) {
-    $uploadDir = "/uploads";
+    $uploadDir = "uploads";
     $uploadFile = $uploadDir.'/'.basename($_FILES['book_image']['name']);
 
 
@@ -66,6 +66,14 @@ if (isset($_FILES['book_image']['tmp_name']) && !empty($_FILES['book_image']['tm
 
     echo '<br> ko sử dụng basename() ' . 'abc/abc1/123.jpg';
     echo '<br> có sử dụng basename() ' . basename('abc/abc1/123.jpg');
+
+    echo '<br> đường dẫn tạm : ' . $_FILES["book_image"]["tmp_name"];
+
+    $resultUpload = move_uploaded_file($_FILES["book_image"]["tmp_name"], $uploadFile);
+
+    var_dump($resultUpload);
+    exit;
+
 }
 
 if (isset($_POST) && !empty($_POST)) {
