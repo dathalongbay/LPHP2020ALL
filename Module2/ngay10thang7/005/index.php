@@ -60,7 +60,7 @@ echo "</pre>";
     <div class="container">
         <h1>Quản lý sách CNTT</h1>
         <p>tài liệu : https://www.w3schools.com/php/php_mysql_select.asp</p>
-        <a href="" class="btn btn-info">Thêm sách mới</a>
+        <a href="create.php" class="btn btn-info">Thêm sách mới</a>
         <div class="row">
             <div class="col-md-12">
                 <table class="table">

@@ -117,6 +117,12 @@ if (isset($_POST) && !empty($_POST)) {
                 <div class="form-group">
                     <label>Ảnh đại diện:</label>
                     <input type="file" class="form-control" name="book_image">
+
+                    <?php
+                    if (isset($row['book_image']) && $row['book_image']) {
+                        ?> <img src="<?php echo $row['book_image'] ?>" style="width: 100px;"> <?php
+                    }
+                    ?>
                 </div>
                 <div class="form-group">
                     <label>Giá tiền:</label>

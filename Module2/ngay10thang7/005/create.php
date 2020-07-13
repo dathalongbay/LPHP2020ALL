@@ -57,24 +57,6 @@ print_r($_FILES);
 echo "</pre>";
 
 
-if (isset($_FILES['book_image']['tmp_name']) && !empty($_FILES['book_image']['tmp_name'])) {
-    $uploadDir = "uploads";
-    $uploadFile = $uploadDir.'/'.basename($_FILES['book_image']['name']);
-
-
-    echo '<br> đường dẫn upload file là : ' . $uploadFile;
-
-    echo '<br> ko sử dụng basename() ' . 'abc/abc1/123.jpg';
-    echo '<br> có sử dụng basename() ' . basename('abc/abc1/123.jpg');
-
-    echo '<br> đường dẫn tạm : ' . $_FILES["book_image"]["tmp_name"];
-
-    $resultUpload = move_uploaded_file($_FILES["book_image"]["tmp_name"], $uploadFile);
-
-    var_dump($resultUpload);
-    exit;
-
-}
 
 if (isset($_POST) && !empty($_POST)) {
     if (isset($_POST['book_name']) && strlen($_POST['book_name']) > 5) {
@@ -100,8 +82,36 @@ if (isset($_POST) && !empty($_POST)) {
 
     if (empty($error)) {
         // không bị lỗi
+
+        // gán mặc định cho upload file
+        $uploadFile = '';
+
+        if (isset($_FILES['book_image']['tmp_name']) && !empty($_FILES['book_image']['tmp_name'])) {
+            $uploadDir = "uploads";
+            $uploadFile = $uploadDir.'/'.basename($_FILES['book_image']['name']);
+
+
+            echo '<br> đường dẫn upload file là : ' . $uploadFile;
+
+            echo '<br> ko sử dụng basename() ' . 'abc/abc1/123.jpg';
+            echo '<br> có sử dụng basename() ' . basename('abc/abc1/123.jpg');
+
+            echo '<br> đường dẫn tạm : ' . $_FILES["book_image"]["tmp_name"];
+
+            $resultUpload = move_uploaded_file($_FILES["book_image"]["tmp_name"], $uploadFile);
+
+            var_dump($resultUpload);
+
+            if ($resultUpload != true) {
+                // upload không thành công
+                $uploadFile = '';
+            }
+
+        }
+
+
         if (isset($book_name) && isset($book_price) && isset($book_desc)) {
-            $sql = "INSERT INTO book(book_name,book_price,book_desc) VALUES ('$book_name',$book_price,'$book_desc')";
+            $sql = "INSERT INTO book(book_name,book_price,book_desc, book_image) VALUES ('$book_name',$book_price,'$book_desc', '$uploadFile')";
             echo "<br> câu SQL : " . $sql;
 
             // thực hiện câu query bằng php
