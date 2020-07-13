@@ -18,8 +18,13 @@ class FileUpload {
      * trả về true nếu đúng
      * trả về false nếu sai
      */
-    public function checkImageValid() {
+    public function checkImageValid($source) {
+        $checkImage = getimagesize($source);
+        if ($checkImage !== false) {
+            return true;
+        }
 
+        return false;
     }
 
 
@@ -29,8 +34,12 @@ class FileUpload {
      * trả về true nếu đúng
      * trả về false nếu sai
      */
-    public function checkImageExist() {
+    public function checkImageExist($target_file) {
+        if (file_exists($target_file)) {
+            return true;
+        }
 
+        return false;
     }
 
     /**
@@ -39,8 +48,18 @@ class FileUpload {
      * trả về true nếu đúng
      * trả về false nếu sai
      */
-    public function checkImageExtension() {
+    public function checkImageExtension($target_file) {
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif" ) {
+
+
+            return false;
+        }
+
+
+        return true;
     }
 
 
@@ -53,7 +72,22 @@ class FileUpload {
      * và false nếu upload thất bại
      */
     public function upload($source,$target) {
+        $uploadTest = move_uploaded_file($source, $target);
+        if ($uploadTest == true) {
+            return true;
+        }
 
+        return false;
     }
 
 }
+
+$target_dir = 'upload/';
+$targetFile = $target_dir . basename($_FILES["book_image"]["name"]);
+$source = $_FILES["book_image"]["tmp_name"];
+
+$f = new FileUpload();
+$f->checkImageValid($source);
+$f->checkImageExist($targetFile);
+$f->checkImageExtension($targetFile);
+$f->upload($source, $targetFile);
