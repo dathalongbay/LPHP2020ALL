@@ -7,6 +7,15 @@
  */
 namespace App\Models;
 
-class BookModel {
+// nạp namespace khác vào trong namespace hiện tại
+use App\Helpers\Database;
+
+class BookModel extends Database {
+
+
+    public function getAll() {
+        echo '<br>' . __METHOD__;
+        return [];
+    }
 
 }

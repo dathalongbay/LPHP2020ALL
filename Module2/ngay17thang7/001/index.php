@@ -6,6 +6,9 @@
 define("SITE_URL", dirname(__FILE__));
 
 echo '<br> SITE_URL : ' . SITE_URL;
+
+include_once SITE_URL."/app/helpers/Database.php";
+include_once SITE_URL."/app/models/BookModel.php";
 include_once SITE_URL."/app/controllers/BookController.php";
 
 /**

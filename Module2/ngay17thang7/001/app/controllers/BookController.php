@@ -7,11 +7,18 @@
  */
 namespace App\Controller;
 
+// nạp namespace
+use App\Models\BookModel;
 
 class BookController {
 
     public function index() {
         echo '<br>' . __METHOD__;
+
+        // gọi method getAll() trong BookModel
+
+        $bookModel1 = new BookModel();
+        $bookModel1->getAll();
     }
 
 }
