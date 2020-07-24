@@ -40,3 +40,8 @@ $dataValid['gender'] = isset($_POST['gender']) ? isset($_POST['gender']) : "";
 
 // validate hợp lệ
 $_SESSION["info"] = $dataValid;
+
+echo "<pre>";
+print_r($_SESSION);
+echo "</pre>";
+echo "<br> thành công ";
