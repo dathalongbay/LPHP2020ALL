@@ -42,9 +42,9 @@ session_start();
             Comment: <textarea name="comment" rows="5" cols="40"><?php echo isset($old_data["comment"]) ? $old_data["comment"] : "" ?></textarea>
             <br><br>
             Gender:
-            <input type="radio" name="gender" value="female">Female
-            <input type="radio" name="gender" value="male">Male
-            <input type="radio" name="gender" value="other">Other
+            <input type="radio" name="gender" value="female" <?php echo (isset($old_data["gender"]) && $old_data["gender"] == "female") ? "checked" : "" ?>>Female
+            <input type="radio" name="gender" value="male" <?php echo (isset($old_data["gender"]) && $old_data["gender"] == "male") ? "checked" : "" ?>>Male
+            <input type="radio" name="gender" value="other" <?php echo (isset($old_data["gender"]) && $old_data["gender"] == "other") ? "checked" : "" ?>>Other
             <span class="error">* <?php echo isset($errors["gender"]) ? $errors["gender"] : "" ?></span>
             <br><br>
             <input type="submit" name="submit" value="Submit">
