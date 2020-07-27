@@ -12,3 +12,11 @@ var_dump($search);
 $search_all = preg_match_all($pattern,$string);
 echo "<br>";
 var_dump($search_all);
+
+// sử dụng preg_replace
+$replacement = "Thăng long";
+$newString = preg_replace($pattern, $replacement, $string);
+echo "<br>";
+var_dump($newString);
+
+
