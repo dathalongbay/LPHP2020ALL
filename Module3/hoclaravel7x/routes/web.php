@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// trang chủ /
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome1');
 });
