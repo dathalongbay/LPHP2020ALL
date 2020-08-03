@@ -62,3 +62,39 @@ Route::get('/tin-tuc-trong-ngay/{id}', function($id){
 
     return view('tintuctrongngay', $data);
 });
+
+// khai báo tên cho router
+Route::get('/lien-he', function(){
+    echo "router liên hệ";
+})->name('lienhe');
+
+// kết nối đến controller
+Route::get('/lien-he-admin', 'LienheController@index');
+
+
+// kết nối đến controller cấp 2
+Route::get('/lien-he-mod', 'Codebase\ContactController@index');
+
+Route::get('/lien-he-mod-var/{categoryId}/{postId}', 'Codebase\ContactController@index2');
+
+Route::get('/lien-he-mod-var-must/{categoryId?}/{postId?}', 'Codebase\ContactController@index3');
+
+
+Route::get('/codebase/blog/index', 'Codebase\BlogController@index');
+Route::get('/codebase/blog/create', 'Codebase\BlogController@create');
+Route::get('/codebase/blog/edit/{id}', 'Codebase\BlogController@edit');
+Route::get('/codebase/blog/delete/{id}', 'Codebase\BlogController@delete');
+
+
+Route::get('/blade/index', 'Codebase\BladeController@index');
+
+Route::get('/blade/index-master', 'Codebase\BladeController@indexMaster');
+
+
+Route::get('/blade/home', 'Codebase\BladeController@home');
+Route::get('/blade/intro', 'Codebase\BladeController@intro');
+Route::get('/blade/contact', 'Codebase\BladeController@contact');
+Route::get('/blade/news', 'Codebase\BladeController@news');
+
+
+
